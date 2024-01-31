@@ -27,21 +27,25 @@ public class PlugSim {
 	 * Switch the plug on.
 	 */
 	synchronized public void switchOn() {
-		// P1: add your code here
+		this.on = true;
 	}
 
 	/**
 	 * Switch the plug off.
 	 */
 	synchronized public void switchOff() {
-		// P1: add your code here
+		this.on = false;
 	}
 
 	/**
 	 * Toggle the plug.
 	 */
 	synchronized public void toggle() {
-		// P1: add your code here
+		if (this.on){
+			this.switchOff();
+		}else{
+			this.switchOn();
+		}
 	}
 
 	/**
