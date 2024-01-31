@@ -3,6 +3,8 @@ package ece448.iot_sim;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Random;
+
 /**
  * Simulate a smart plug with power monitoring.
  */
@@ -11,6 +13,36 @@ public class PlugSim {
 	private final String name;
 	private boolean on = false;
 	private double power = 0; // in watts
+
+
+	/**
+	 * Measure power private.
+	 */
+	public void measurePower_private(Random random) {
+		if (!on) {
+			updatePower(0);
+			return;
+		}
+
+		// a trick to help testing
+		if (name.indexOf(".") != -1)
+		{
+			updatePower(Integer.parseInt(name.split("\\.")[1]));
+		}
+		// do some random walk
+		else if (power < 100)
+		{
+			updatePower(power + random.nextDouble() * 100);
+		}
+		else if (power > 300)
+		{
+			updatePower(power - random.nextDouble() * 100);
+		}
+		else
+		{
+			updatePower(power + random.nextDouble() * 40 - 20);
+		}
+	}
 
 	public PlugSim(String name) {
 		this.name = name;
@@ -52,29 +84,7 @@ public class PlugSim {
 	 * Measure power.
 	 */
 	synchronized public void measurePower() {
-		if (!on) {
-			updatePower(0);
-			return;
-		}
-
-		// a trick to help testing
-		if (name.indexOf(".") != -1)
-		{
-			updatePower(Integer.parseInt(name.split("\\.")[1]));
-		}
-		// do some random walk
-		else if (power < 100)
-		{
-			updatePower(power + Math.random() * 100);
-		}
-		else if (power > 300)
-		{
-			updatePower(power - Math.random() * 100);
-		}
-		else
-		{
-			updatePower(power + Math.random() * 40 - 20);
-		}
+		this.measurePower_private( new Random() );
 	}
 
 	protected void updatePower(double p) {

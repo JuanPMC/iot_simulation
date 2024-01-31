@@ -3,99 +3,109 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Random;
+
 /**
  * Simulate a smart plug with power monitoring.
  */
 public class PlugSim {
 
 	private final String name;
-<span class="fc" id="L12">	private boolean on = false;</span>
-<span class="fc" id="L13">	private double power = 0; // in watts</span>
+<span class="fc" id="L14">	private boolean on = false;</span>
+<span class="fc" id="L15">	private double power = 0; // in watts</span>
 
-<span class="fc" id="L15">	public PlugSim(String name) {</span>
-<span class="fc" id="L16">		this.name = name;</span>
-<span class="fc" id="L17">	}</span>
+
+	/**
+	 * Measure power private.
+	 */
+	public void measurePower_private(Random random) {
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		if (!on) {</span>
+<span class="fc" id="L23">			updatePower(0);</span>
+<span class="fc" id="L24">			return;</span>
+		}
+
+		// a trick to help testing
+<span class="fc bfc" id="L28" title="All 2 branches covered.">		if (name.indexOf(&quot;.&quot;) != -1)</span>
+		{
+<span class="fc" id="L30">			updatePower(Integer.parseInt(name.split(&quot;\\.&quot;)[1]));</span>
+		}
+		// do some random walk
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		else if (power &lt; 100)</span>
+		{
+<span class="fc" id="L35">			updatePower(power + random.nextDouble() * 100);</span>
+		}
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		else if (power &gt; 300)</span>
+		{
+<span class="fc" id="L39">			updatePower(power - random.nextDouble() * 100);</span>
+		}
+		else
+		{
+<span class="fc" id="L43">			updatePower(power + random.nextDouble() * 40 - 20);</span>
+		}
+<span class="fc" id="L45">	}</span>
+
+<span class="fc" id="L47">	public PlugSim(String name) {</span>
+<span class="fc" id="L48">		this.name = name;</span>
+<span class="fc" id="L49">	}</span>
 
 	/**
 	 * No need to synchronize if read a final field.
 	 */
 	public String getName() {
-<span class="nc" id="L23">		return name;</span>
+<span class="fc" id="L55">		return name;</span>
 	}
 
 	/**
 	 * Switch the plug on.
 	 */
 	synchronized public void switchOn() {
-<span class="fc" id="L30">		this.on = true;</span>
-<span class="fc" id="L31">	}</span>
+<span class="fc" id="L62">		this.on = true;</span>
+<span class="fc" id="L63">	}</span>
 
 	/**
 	 * Switch the plug off.
 	 */
 	synchronized public void switchOff() {
-<span class="nc" id="L37">		this.on = false;</span>
-<span class="nc" id="L38">	}</span>
+<span class="fc" id="L69">		this.on = false;</span>
+<span class="fc" id="L70">	}</span>
 
 	/**
 	 * Toggle the plug.
 	 */
 	synchronized public void toggle() {
-<span class="nc bnc" id="L44" title="All 2 branches missed.">		if (this.on){</span>
-<span class="nc" id="L45">			this.switchOff();</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (this.on){</span>
+<span class="fc" id="L77">			this.switchOff();</span>
 		}else{
-<span class="nc" id="L47">			this.switchOn();</span>
+<span class="fc" id="L79">			this.switchOn();</span>
 		}
-<span class="nc" id="L49">	}</span>
+<span class="fc" id="L81">	}</span>
 
 	/**
 	 * Measure power.
 	 */
 	synchronized public void measurePower() {
-<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (!on) {</span>
-<span class="nc" id="L56">			updatePower(0);</span>
-<span class="nc" id="L57">			return;</span>
-		}
-
-		// a trick to help testing
-<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (name.indexOf(&quot;.&quot;) != -1)</span>
-		{
-<span class="nc" id="L63">			updatePower(Integer.parseInt(name.split(&quot;\\.&quot;)[1]));</span>
-		}
-		// do some random walk
-<span class="nc bnc" id="L66" title="All 2 branches missed.">		else if (power &lt; 100)</span>
-		{
-<span class="nc" id="L68">			updatePower(power + Math.random() * 100);</span>
-		}
-<span class="nc bnc" id="L70" title="All 2 branches missed.">		else if (power &gt; 300)</span>
-		{
-<span class="nc" id="L72">			updatePower(power - Math.random() * 100);</span>
-		}
-		else
-		{
-<span class="nc" id="L76">			updatePower(power + Math.random() * 40 - 20);</span>
-		}
-<span class="nc" id="L78">	}</span>
+<span class="fc" id="L87">		this.measurePower_private( new Random() );</span>
+<span class="fc" id="L88">	}</span>
 
 	protected void updatePower(double p) {
-<span class="nc" id="L81">		power = p;</span>
-<span class="nc" id="L82">		logger.debug(&quot;Plug {}: power {}&quot;, name, power);</span>
-<span class="nc" id="L83">	}</span>
+<span class="fc" id="L91">		power = p;</span>
+<span class="fc" id="L92">		logger.debug(&quot;Plug {}: power {}&quot;, name, power);</span>
+<span class="fc" id="L93">	}</span>
 
 	/**
 	 * Getter: current state
 	 */
 	synchronized public boolean isOn() {
-<span class="fc" id="L89">		return on;</span>
+<span class="fc" id="L99">		return on;</span>
 	}
 
 	/**
 	 * Getter: last power reading
 	 */
 	synchronized public double getPower() {
-<span class="nc" id="L96">		return power;</span>
+<span class="fc" id="L106">		return power;</span>
 	}
 
-<span class="fc" id="L99">	private static final Logger logger = LoggerFactory.getLogger(PlugSim.class);</span>
+<span class="fc" id="L109">	private static final Logger logger = LoggerFactory.getLogger(PlugSim.class);</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

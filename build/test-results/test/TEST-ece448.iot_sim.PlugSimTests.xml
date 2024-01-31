@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_sim.PlugSimTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-31T00:51:04" hostname="MSI" time="0.187">
+<testsuite name="ece448.iot_sim.PlugSimTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-31T01:41:17" hostname="MSI" time="0.248">
   <properties/>
-  <testcase name="testInit" classname="ece448.iot_sim.PlugSimTests" time="0.187"/>
+  <testcase name="testSwitchOff" classname="ece448.iot_sim.PlugSimTests" time="0.235"/>
+  <testcase name="testUpdatePower" classname="ece448.iot_sim.PlugSimTests" time="0.01"/>
+  <testcase name="testInit" classname="ece448.iot_sim.PlugSimTests" time="0.0"/>
+  <testcase name="testGetName" classname="ece448.iot_sim.PlugSimTests" time="0.0"/>
+  <testcase name="testMesurePower" classname="ece448.iot_sim.PlugSimTests" time="0.003"/>
   <testcase name="testSwitchOn" classname="ece448.iot_sim.PlugSimTests" time="0.0"/>
+  <testcase name="testToggle" classname="ece448.iot_sim.PlugSimTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
