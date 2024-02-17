@@ -43,6 +43,18 @@ public class HTTPCommands implements RequestHandler {
 			return report(plug);
 
 		// P2: add your code here, modify the next line if necessary
+		if (action.equals("on")){
+			plug.switchOn();
+			return report(plug);
+		}
+		if (action.equals("off")){
+			plug.switchOff();
+			return report(plug);
+		}
+		if (action.equals("toggle")){
+			plug.toggle();
+			return report(plug);
+		}
 		return "<html><body></body></html>";
 	}
 

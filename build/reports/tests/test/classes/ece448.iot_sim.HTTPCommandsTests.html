@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class ece448.iot_sim.PlugSimTests</title>
+<title>Test results - Class ece448.iot_sim.HTTPCommandsTests</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class ece448.iot_sim.PlugSimTests</h1>
+<h1>Class ece448.iot_sim.HTTPCommandsTests</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/ece448.iot_sim.html">ece448.iot_sim</a> &gt; PlugSimTests</div>
+<a href="../packages/ece448.iot_sim.html">ece448.iot_sim</a> &gt; HTTPCommandsTests</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.483s</div>
+<div class="counter">0.009s</div>
 <p>duration</p>
 </div>
 </td>
@@ -63,6 +63,9 @@
 <li>
 <a href="#tab0">Tests</a>
 </li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -75,41 +78,54 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testGetName</td>
-<td>0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testInit</td>
-<td>0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testMesurePower</td>
-<td>0.003s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testSwitchOff</td>
-<td>0.469s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testSwitchOn</td>
+<td class="success">testActionNoExist</td>
 <td>0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testToggle</td>
+<td class="success">testNoPLug</td>
 <td>0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testUpdatePower</td>
-<td>0.010s</td>
+<td class="success">testNullAction</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testON</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testOff</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRootDir</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testToggel</td>
+<td>0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-02-17 11:50:58,662 INFO HTTPCmd /a: {action=off}
+2024-02-17 11:50:58,664 INFO HTTPCmd /a: {action=on}
+2024-02-17 11:50:58,665 INFO HTTPCmd /a: {xx=xx}
+2024-02-17 11:50:58,667 INFO HTTPCmd /: {xx=xx}
+2024-02-17 11:50:58,668 INFO HTTPCmd /a: {action=xx}
+2024-02-17 11:50:58,668 INFO HTTPCmd /pepepe: {action=toggle}
+2024-02-17 11:50:58,669 INFO HTTPCmd /a: {action=toggle}
+</pre>
+</span>
 </div>
 </div>
 <div id="footer">
