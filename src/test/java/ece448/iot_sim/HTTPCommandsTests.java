@@ -80,7 +80,7 @@ public class HTTPCommandsTests {
 		// Create parameters
 		Map<String, String> params = Map.of("action", "xx");
 
-		assert(a.handleGet("/a",params).equals("<html><body></body></html>"));
+		assert(a.handleGet("/a",params).equals(report(plug)));
 	}
 
 	@Test

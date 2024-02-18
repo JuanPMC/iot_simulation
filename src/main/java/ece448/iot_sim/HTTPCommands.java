@@ -55,7 +55,7 @@ public class HTTPCommands implements RequestHandler {
 			plug.toggle();
 			return report(plug);
 		}
-		return "<html><body></body></html>";
+		return report(plug);
 	}
 
 	protected String listPlugs() {
