@@ -51,7 +51,7 @@ public class PlugSimTests {
 		assertTrue(plug.isOn() != estado1);
 		plug.toggle();
 		boolean estado2 = plug.isOn();
-		assertTrue(estado1 == estado1);
+		assertTrue(estado1 == estado2);
 
 	}
 

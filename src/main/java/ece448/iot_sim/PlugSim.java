@@ -1,8 +1,19 @@
 package ece448.iot_sim;
 
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ece448.grading.GradeP3.MqttController;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,39 +24,82 @@ public class PlugSim {
 	private final String name;
 	private boolean on = false;
 	private double power = 0; // in watts
+	private MqttClient client;
+	private static final ObjectMapper mapper = new ObjectMapper();
+	private SimConfig config;
 
+	private final List<Observer> observers = new ArrayList<>();
+
+	public synchronized void addObserver(Observer observer) {
+        observers.add(observer);
+
+        // Notify the newly added observer about the current state and power
+        observer.update(name, "state", on ? "on" : "off");
+        observer.update(name, "power", String.format("%.3f", power));
+    }
+
+	public static interface Observer {
+		void update(String name, String key, String value);
+	}
+	
+	public void updateStateAndPower(String name, boolean on, double power) {
+        synchronized (this) {
+            for (Observer observer : observers) {
+                observer.update(name, "state", on ? "on" : "off");
+                observer.update(name, "power", String.format("%.3f", power));
+            }
+        }
+    }
+
+    protected synchronized void updateState(boolean newState) {
+        on = newState;
+        // Log information about the state change
+        logger.info("Plug {}: state {}", name, on ? "on" : "off");
+
+        // Notify observers about the state change
+        for (Observer observer : observers) {
+            observer.update(name, "state", on ? "on" : "off");
+        }
+    }
 
 	/**
 	 * Measure power private.
 	 */
 	public void measurePower_private(Random random) {
-		if (!on) {
-			updatePower(0);
-			return;
-		}
 
-		// a trick to help testing
-		if (name.indexOf(".") != -1)
-		{
-			updatePower(Integer.parseInt(name.split("\\.")[1]));
+		Double end_power;
+
+		if (!on) {
+			end_power = 0.;
 		}
-		// do some random walk
+		else if (name.indexOf(".") != -1)
+		{
+			end_power = Double.parseDouble(name.split("\\.")[1]);
+		}
 		else if (power < 100)
 		{
-			updatePower(power + random.nextDouble() * 100);
+			end_power = power + random.nextDouble() * 100;
 		}
 		else if (power > 300)
 		{
-			updatePower(power - random.nextDouble() * 100);
+			end_power = power - random.nextDouble() * 100;
 		}
 		else
 		{
-			updatePower(power + random.nextDouble() * 40 - 20);
+			end_power = power + random.nextDouble() * 40 - 20;
 		}
+		updatePower(end_power);
 	}
 
 	public PlugSim(String name) {
 		this.name = name;
+		try {
+			// this.config = mapper.readValue(new File("simConfig.json"), SimConfig.class);
+			this.client = new MqttClient("tcp://127.0.0.1", this.name , new MemoryPersistence());
+			this.client.connect();
+		} catch (Exception e) {
+			logger.info(String.format("Error connecting client %s",e));
+		}
 	}
 
 	/**
@@ -59,14 +113,14 @@ public class PlugSim {
 	 * Switch the plug on.
 	 */
 	synchronized public void switchOn() {
-		this.on = true;
+        updateState(true);
 	}
 
 	/**
 	 * Switch the plug off.
 	 */
 	synchronized public void switchOff() {
-		this.on = false;
+		updateState(false);
 	}
 
 	/**
@@ -89,7 +143,12 @@ public class PlugSim {
 
 	protected void updatePower(double p) {
 		power = p;
-		logger.debug("Plug {}: power {}", name, power);
+		logger.info("Plug {}: power {}", name, power);
+
+		// Notify observers about the power change
+		for (Observer observer : observers) {
+			observer.update(name, "power", String.format("%.3f", power));
+		}
 	}
 
 	/**
@@ -106,5 +165,5 @@ public class PlugSim {
 		return power;
 	}
 
-	private static final Logger logger = LoggerFactory.getLogger(PlugSim.class);
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(PlugSim.class);
 }

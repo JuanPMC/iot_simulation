@@ -1,14 +1,62 @@
+.2024-03-08 20:17:05,288 INFO Plug a: state on
+/2024-03-08 20:17:05,308 INFO Plug a: state off
+/2024-03-08 20:17:05,616 INFO Plug a: power 3.0
+/2024-03-08 20:17:05,617 INFO Plug a: power 5.0
+02024-03-08 20:17:06,857 INFO Plug a.1: state on
+22024-03-08 20:17:06,858 INFO Plug a.1: power 99.0
+12024-03-08 20:17:06,860 INFO Plug a.1: power 1.0
+/2024-03-08 20:17:06,861 INFO Plug a: state off
+/2024-03-08 20:17:06,863 INFO Plug a: power 1.0
+/2024-03-08 20:17:06,864 INFO Plug a: power 0.0
+.2024-03-08 20:17:06,865 INFO Plug a: state on
+/2024-03-08 20:17:06,867 INFO Plug a: power 1.0
+=2024-03-08 20:17:06,868 INFO Plug a: power 74.08781907032909
+.2024-03-08 20:17:06,869 INFO Plug a: state on
+12024-03-08 20:17:06,870 INFO Plug a: power 400.0
+=2024-03-08 20:17:06,871 INFO Plug a: power 358.9919188507798
+.2024-03-08 20:17:06,872 INFO Plug a: state on
+12024-03-08 20:17:06,874 INFO Plug a: power 200.0
+>2024-03-08 20:17:06,875 INFO Plug a: power 188.30859365238868
+.2024-03-08 20:17:07,188 INFO Plug a: state on
+.2024-03-08 20:17:07,501 INFO Plug a: state on
+/2024-03-08 20:17:07,502 INFO Plug a: state off
 
-	62024-02-17 12:03:56,811 INFO HTTPCmd /a: {action=off}
+	/2024-03-08 20:17:07,824 INFO Plug a: state off
 
-52024-02-17 12:03:56,812 INFO HTTPCmd /a: {action=on}
+	.2024-03-08 20:17:07,826 INFO Plug a: state on
 
-12024-02-17 12:03:56,813 INFO HTTPCmd /a: {xx=xx}
+	62024-03-08 20:17:07,828 INFO HTTPCmd /a: {action=off}
 
-02024-02-17 12:03:56,815 INFO HTTPCmd /: {xx=xx}
+	/2024-03-08 20:17:07,829 INFO Plug a: state off
 
-52024-02-17 12:03:56,816 INFO HTTPCmd /a: {action=xx}
+/2024-03-08 20:17:08,142 INFO Plug a: state off
 
->2024-02-17 12:03:56,817 INFO HTTPCmd /pepepe: {action=toggle}
+/2024-03-08 20:17:08,144 INFO Plug a: state off
 
-92024-02-17 12:03:56,818 INFO HTTPCmd /a: {action=toggle}
+52024-03-08 20:17:08,145 INFO HTTPCmd /a: {action=on}
+
+.2024-03-08 20:17:08,146 INFO Plug a: state on
+
+/2024-03-08 20:17:08,457 INFO Plug a: state off
+
+12024-03-08 20:17:08,459 INFO HTTPCmd /a: {xx=xx}
+
+/2024-03-08 20:17:08,770 INFO Plug a: state off
+
+02024-03-08 20:17:08,771 INFO HTTPCmd /: {xx=xx}
+
+/2024-03-08 20:17:09,083 INFO Plug a: state off
+
+52024-03-08 20:17:09,085 INFO HTTPCmd /a: {action=xx}
+
+/2024-03-08 20:17:09,398 INFO Plug a: state off
+
+>2024-03-08 20:17:09,400 INFO HTTPCmd /pepepe: {action=toggle}
+
+/2024-03-08 20:17:09,710 INFO Plug a: state off
+
+.2024-03-08 20:17:09,712 INFO Plug a: state on
+
+92024-03-08 20:17:09,713 INFO HTTPCmd /a: {action=toggle}
+
+/2024-03-08 20:17:09,714 INFO Plug a: state off
