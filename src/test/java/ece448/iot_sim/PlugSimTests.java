@@ -11,6 +11,9 @@ public class PlugSimTests {
 	@Test
 	public void testInit() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
 
 		assertFalse(plug.isOn());
 	}
@@ -18,6 +21,9 @@ public class PlugSimTests {
 	@Test
 	public void testSwitchOn() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
 
 		plug.switchOn();
 
@@ -27,6 +33,9 @@ public class PlugSimTests {
 	@Test
 	public void testSwitchOff() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
 
 		plug.switchOn();
 		plug.switchOff();
@@ -37,6 +46,9 @@ public class PlugSimTests {
 	@Test
 	public void testGetName() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
 
 		assertTrue(plug.getName() == "a");
 	}
@@ -44,7 +56,9 @@ public class PlugSimTests {
 	@Test
 	public void testToggle() {
 		PlugSim plug = new PlugSim("a");
-
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
 
 		boolean estado1 = plug.isOn();
 		plug.toggle();
@@ -58,6 +72,10 @@ public class PlugSimTests {
 	@Test
 	public void testUpdatePower() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
+
 		plug.updatePower(3);
 		assertTrue(plug.getPower() == 3);
 
@@ -69,12 +87,20 @@ public class PlugSimTests {
 	@Test
 	public void testMesurePower() {
 		PlugSim plug = new PlugSim("a");
+		plug.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
+
 		Random random_in = new Random(1);
 		Random random_out = new Random(1);
 
 		// Test the debugging case
 		PlugSim plug2 = new PlugSim("a.1");
 		plug2.switchOn();
+		plug2.addObserver((name, key, value) -> {
+			System.out.println("");
+		});
+		
 		plug2.updatePower(99);
 		plug2.measurePower();
 		assertTrue( plug2.getPower() == 1);

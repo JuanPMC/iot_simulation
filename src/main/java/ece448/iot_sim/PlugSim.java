@@ -42,15 +42,6 @@ public class PlugSim {
 		void update(String name, String key, String value);
 	}
 	
-	public void updateStateAndPower(String name, boolean on, double power) {
-        synchronized (this) {
-            for (Observer observer : observers) {
-                observer.update(name, "state", on ? "on" : "off");
-                observer.update(name, "power", String.format("%.3f", power));
-            }
-        }
-    }
-
     protected synchronized void updateState(boolean newState) {
         on = newState;
         // Log information about the state change

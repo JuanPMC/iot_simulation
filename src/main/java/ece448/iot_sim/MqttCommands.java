@@ -27,29 +27,24 @@ public class MqttCommands {
         return topicPrefix + "/action/#";
     }
 
-    public void handleMessage(String topic, MqttMessage msg) {
-        try {
-            logger.info("MqttCmd {} ", topic);
-            // Switch on/off/toggle logic here
-            String[] valuesArray = topic.split("/");
-            String action = valuesArray[valuesArray.length - 1];
-            String plug_name = valuesArray[valuesArray.length - 2];
-            
-            if (action.equals("toggle")){
-                logger.info("MqttCmd {} {}", "toggle", plug_name);
-                this.plugs.get(plug_name).toggle();
-            }
-            if (action.equals("on")){
-                logger.info("MqttCmd {} {}", "on", plug_name);
-                this.plugs.get(plug_name).switchOn();
-            }
-            if (action.equals("off")){
-                logger.info("MqttCmd {} {}", "off", plug_name);
-                this.plugs.get(plug_name).switchOff();
-            }
-        } catch (Throwable th) {
-            // Otherwise, Mqtt client will disconnect without error information
-            logger.error("MqttCmd {}: {} ", topic, th.getMessage(), th);
+    public void handleMessage(String topic, MqttMessage msg) throws Exception {
+        logger.info("MqttCmd {} ", topic);
+        // Switch on/off/toggle logic here
+        String[] valuesArray = topic.split("/");
+        String action = valuesArray[valuesArray.length - 1];
+        String plug_name = valuesArray[valuesArray.length - 2];
+        
+        if (action.equals("toggle")){
+            logger.info("MqttCmd {} {}", "toggle", plug_name);
+            this.plugs.get(plug_name).toggle();
+        }
+        if (action.equals("on")){
+            logger.info("MqttCmd {} {}", "on", plug_name);
+            this.plugs.get(plug_name).switchOn();
+        }
+        if (action.equals("off")){
+            logger.info("MqttCmd {} {}", "off", plug_name);
+            this.plugs.get(plug_name).switchOff();
         }
     }
 }

@@ -5,18 +5,18 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class MqttUpdates {
     private final String topicPrefix;
 
-<span class="nc" id="L8">    public MqttUpdates(String topicPrefix) {</span>
-<span class="nc" id="L9">        this.topicPrefix = topicPrefix;</span>
-<span class="nc" id="L10">    }</span>
+<span class="fc" id="L8">    public MqttUpdates(String topicPrefix) {</span>
+<span class="fc" id="L9">        this.topicPrefix = topicPrefix;</span>
+<span class="fc" id="L10">    }</span>
 
     public String getTopic(String name, String key) {
-<span class="nc" id="L13">        return topicPrefix + &quot;/update/&quot; + name + &quot;/&quot; + key;</span>
+<span class="fc" id="L13">        return topicPrefix + &quot;/update/&quot; + name + &quot;/&quot; + key;</span>
     }
 
     public MqttMessage getMessage(String value) {
-<span class="nc" id="L17">        MqttMessage msg = new MqttMessage(value.getBytes());</span>
-<span class="nc" id="L18">        msg.setRetained(true);</span>
-<span class="nc" id="L19">        return msg;</span>
+<span class="fc" id="L17">        MqttMessage msg = new MqttMessage(value.getBytes());</span>
+<span class="fc" id="L18">        msg.setRetained(true);</span>
+<span class="fc" id="L19">        return msg;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
