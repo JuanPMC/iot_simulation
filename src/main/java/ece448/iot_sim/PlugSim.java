@@ -1,6 +1,5 @@
 package ece448.iot_sim;
 
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
@@ -24,7 +23,6 @@ public class PlugSim {
 	private final String name;
 	private boolean on = false;
 	private double power = 0; // in watts
-	private MqttClient client;
 	private static final ObjectMapper mapper = new ObjectMapper();
 	private SimConfig config;
 
@@ -84,13 +82,6 @@ public class PlugSim {
 
 	public PlugSim(String name) {
 		this.name = name;
-		try {
-			// this.config = mapper.readValue(new File("simConfig.json"), SimConfig.class);
-			this.client = new MqttClient("tcp://127.0.0.1", this.name , new MemoryPersistence());
-			this.client.connect();
-		} catch (Exception e) {
-			logger.info(String.format("Error connecting client %s",e));
-		}
 	}
 
 	/**

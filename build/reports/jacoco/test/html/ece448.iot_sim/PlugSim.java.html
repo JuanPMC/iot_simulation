@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlugSim.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_sim</a> &gt; <span class="el_source">PlugSim.java</span></div><h1>PlugSim.java</h1><pre class="source lang-java linenums">package ece448.iot_sim;
 
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
@@ -22,36 +21,35 @@ import java.util.Random;
 public class PlugSim {
 
 	private final String name;
-<span class="fc" id="L25">	private boolean on = false;</span>
-<span class="fc" id="L26">	private double power = 0; // in watts</span>
-	private MqttClient client;
-<span class="fc" id="L28">	private static final ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L24">	private boolean on = false;</span>
+<span class="fc" id="L25">	private double power = 0; // in watts</span>
+<span class="fc" id="L26">	private static final ObjectMapper mapper = new ObjectMapper();</span>
 	private SimConfig config;
 
-<span class="fc" id="L31">	private final List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L29">	private final List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();</span>
 
 	public synchronized void addObserver(Observer observer) {
-<span class="fc" id="L34">        observers.add(observer);</span>
+<span class="fc" id="L32">        observers.add(observer);</span>
 
         // Notify the newly added observer about the current state and power
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        observer.update(name, &quot;state&quot;, on ? &quot;on&quot; : &quot;off&quot;);</span>
-<span class="fc" id="L38">        observer.update(name, &quot;power&quot;, String.format(&quot;%.3f&quot;, power));</span>
-<span class="fc" id="L39">    }</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        observer.update(name, &quot;state&quot;, on ? &quot;on&quot; : &quot;off&quot;);</span>
+<span class="fc" id="L36">        observer.update(name, &quot;power&quot;, String.format(&quot;%.3f&quot;, power));</span>
+<span class="fc" id="L37">    }</span>
 
 	public static interface Observer {
 		void update(String name, String key, String value);
 	}
 	
     protected synchronized void updateState(boolean newState) {
-<span class="fc" id="L46">        on = newState;</span>
+<span class="fc" id="L44">        on = newState;</span>
         // Log information about the state change
-<span class="fc bfc" id="L48" title="All 2 branches covered.">        logger.info(&quot;Plug {}: state {}&quot;, name, on ? &quot;on&quot; : &quot;off&quot;);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        logger.info(&quot;Plug {}: state {}&quot;, name, on ? &quot;on&quot; : &quot;off&quot;);</span>
 
         // Notify observers about the state change
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Observer observer : observers) {</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">            observer.update(name, &quot;state&quot;, on ? &quot;on&quot; : &quot;off&quot;);</span>
-<span class="fc" id="L53">        }</span>
-<span class="fc" id="L54">    }</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        for (Observer observer : observers) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            observer.update(name, &quot;state&quot;, on ? &quot;on&quot; : &quot;off&quot;);</span>
+<span class="fc" id="L51">        }</span>
+<span class="fc" id="L52">    }</span>
 
 	/**
 	 * Measure power private.
@@ -60,102 +58,95 @@ public class PlugSim {
 
 		Double end_power;
 
-<span class="fc bfc" id="L63" title="All 2 branches covered.">		if (!on) {</span>
-<span class="fc" id="L64">			end_power = 0.;</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if (!on) {</span>
+<span class="fc" id="L62">			end_power = 0.;</span>
 		}
-<span class="fc bfc" id="L66" title="All 2 branches covered.">		else if (name.indexOf(&quot;.&quot;) != -1)</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		else if (name.indexOf(&quot;.&quot;) != -1)</span>
 		{
-<span class="fc" id="L68">			end_power = Double.parseDouble(name.split(&quot;\\.&quot;)[1]);</span>
+<span class="fc" id="L66">			end_power = Double.parseDouble(name.split(&quot;\\.&quot;)[1]);</span>
 		}
-<span class="fc bfc" id="L70" title="All 2 branches covered.">		else if (power &lt; 100)</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">		else if (power &lt; 100)</span>
 		{
-<span class="fc" id="L72">			end_power = power + random.nextDouble() * 100;</span>
+<span class="fc" id="L70">			end_power = power + random.nextDouble() * 100;</span>
 		}
-<span class="fc bfc" id="L74" title="All 2 branches covered.">		else if (power &gt; 300)</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		else if (power &gt; 300)</span>
 		{
-<span class="fc" id="L76">			end_power = power - random.nextDouble() * 100;</span>
+<span class="fc" id="L74">			end_power = power - random.nextDouble() * 100;</span>
 		}
 		else
 		{
-<span class="fc" id="L80">			end_power = power + random.nextDouble() * 40 - 20;</span>
+<span class="fc" id="L78">			end_power = power + random.nextDouble() * 40 - 20;</span>
 		}
-<span class="fc" id="L82">		updatePower(end_power);</span>
-<span class="fc" id="L83">	}</span>
+<span class="fc" id="L80">		updatePower(end_power);</span>
+<span class="fc" id="L81">	}</span>
 
-<span class="fc" id="L85">	public PlugSim(String name) {</span>
-<span class="fc" id="L86">		this.name = name;</span>
-		try {
-			// this.config = mapper.readValue(new File(&quot;simConfig.json&quot;), SimConfig.class);
-<span class="fc" id="L89">			this.client = new MqttClient(&quot;tcp://127.0.0.1&quot;, this.name , new MemoryPersistence());</span>
-<span class="fc" id="L90">			this.client.connect();</span>
-<span class="nc" id="L91">		} catch (Exception e) {</span>
-<span class="nc" id="L92">			logger.info(String.format(&quot;Error connecting client %s&quot;,e));</span>
-<span class="fc" id="L93">		}</span>
-<span class="fc" id="L94">	}</span>
+<span class="fc" id="L83">	public PlugSim(String name) {</span>
+<span class="fc" id="L84">		this.name = name;</span>
+<span class="fc" id="L85">	}</span>
 
 	/**
 	 * No need to synchronize if read a final field.
 	 */
 	public String getName() {
-<span class="fc" id="L100">		return name;</span>
+<span class="fc" id="L91">		return name;</span>
 	}
 
 	/**
 	 * Switch the plug on.
 	 */
 	synchronized public void switchOn() {
-<span class="fc" id="L107">        updateState(true);</span>
-<span class="fc" id="L108">	}</span>
+<span class="fc" id="L98">        updateState(true);</span>
+<span class="fc" id="L99">	}</span>
 
 	/**
 	 * Switch the plug off.
 	 */
 	synchronized public void switchOff() {
-<span class="fc" id="L114">		updateState(false);</span>
-<span class="fc" id="L115">	}</span>
+<span class="fc" id="L105">		updateState(false);</span>
+<span class="fc" id="L106">	}</span>
 
 	/**
 	 * Toggle the plug.
 	 */
 	synchronized public void toggle() {
-<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (this.on){</span>
-<span class="fc" id="L122">			this.switchOff();</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		if (this.on){</span>
+<span class="fc" id="L113">			this.switchOff();</span>
 		}else{
-<span class="fc" id="L124">			this.switchOn();</span>
+<span class="fc" id="L115">			this.switchOn();</span>
 		}
-<span class="fc" id="L126">	}</span>
+<span class="fc" id="L117">	}</span>
 
 	/**
 	 * Measure power.
 	 */
 	synchronized public void measurePower() {
-<span class="fc" id="L132">		this.measurePower_private( new Random() );</span>
-<span class="fc" id="L133">	}</span>
+<span class="fc" id="L123">		this.measurePower_private( new Random() );</span>
+<span class="fc" id="L124">	}</span>
 
 	protected void updatePower(double p) {
-<span class="fc" id="L136">		power = p;</span>
-<span class="fc" id="L137">		logger.info(&quot;Plug {}: power {}&quot;, name, power);</span>
+<span class="fc" id="L127">		power = p;</span>
+<span class="fc" id="L128">		logger.info(&quot;Plug {}: power {}&quot;, name, power);</span>
 
 		// Notify observers about the power change
-<span class="fc bfc" id="L140" title="All 2 branches covered.">		for (Observer observer : observers) {</span>
-<span class="fc" id="L141">			observer.update(name, &quot;power&quot;, String.format(&quot;%.3f&quot;, power));</span>
-<span class="fc" id="L142">		}</span>
-<span class="fc" id="L143">	}</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">		for (Observer observer : observers) {</span>
+<span class="fc" id="L132">			observer.update(name, &quot;power&quot;, String.format(&quot;%.3f&quot;, power));</span>
+<span class="fc" id="L133">		}</span>
+<span class="fc" id="L134">	}</span>
 
 	/**
 	 * Getter: current state
 	 */
 	synchronized public boolean isOn() {
-<span class="fc" id="L149">		return on;</span>
+<span class="fc" id="L140">		return on;</span>
 	}
 
 	/**
 	 * Getter: last power reading
 	 */
 	synchronized public double getPower() {
-<span class="fc" id="L156">		return power;</span>
+<span class="fc" id="L147">		return power;</span>
 	}
 
-<span class="fc" id="L159">	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(PlugSim.class);</span>
+<span class="fc" id="L150">	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(PlugSim.class);</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
