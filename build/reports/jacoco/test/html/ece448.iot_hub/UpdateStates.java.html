@@ -16,38 +16,38 @@ import ece448.iot_sim.PlugSim;
 public class UpdateStates {
     private final PlugStates plugStates;
 
-<span class="nc" id="L19">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+<span class="fc" id="L19">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
 
     @Autowired
-<span class="nc" id="L22">    public UpdateStates(PlugStates plugStates) {</span>
-<span class="nc" id="L23">        this.plugStates = plugStates;</span>
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L22">    public UpdateStates(PlugStates plugStates) {</span>
+<span class="fc" id="L23">        this.plugStates = plugStates;</span>
+<span class="fc" id="L24">    }</span>
 
     public void handleMessage(String topic, MqttMessage msg) throws Exception {
-<span class="nc" id="L27">        logger.info(&quot;Update {} &quot;, topic);</span>
-<span class="nc" id="L28">        String[] valuesArray = topic.split(&quot;/&quot;);</span>
-<span class="nc" id="L29">        String action = valuesArray[valuesArray.length - 1];</span>
-<span class="nc" id="L30">        String plug = valuesArray[valuesArray.length - 2];</span>
+<span class="fc" id="L27">        logger.info(&quot;Update {} &quot;, topic);</span>
+<span class="fc" id="L28">        String[] valuesArray = topic.split(&quot;/&quot;);</span>
+<span class="fc" id="L29">        String action = valuesArray[valuesArray.length - 1];</span>
+<span class="fc" id="L30">        String plug = valuesArray[valuesArray.length - 2];</span>
 
         // get the value
-<span class="nc" id="L33">        String value = new String(msg.getPayload());</span>
+<span class="fc" id="L33">        String value = new String(msg.getPayload());</span>
 
         // show the value
-<span class="nc" id="L36">        logger.info(&quot;Plug: {} Action: {} Value: {}&quot;,plug ,action, value);</span>
+<span class="fc" id="L36">        logger.info(&quot;Plug: {} Action: {} Value: {}&quot;,plug ,action, value);</span>
 
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (action.equals(&quot;state&quot;)){</span>
-<span class="nc" id="L39">            plugStates.updateState(plug, value.equals(&quot;on&quot;));</span>
-<span class="nc" id="L40">            logger.info(&quot;MODIFICADO STATE&quot;);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (action.equals(&quot;state&quot;)){</span>
+<span class="fc" id="L39">            plugStates.updateState(plug, value.equals(&quot;on&quot;));</span>
+<span class="fc" id="L40">            logger.info(&quot;MODIFICADO STATE&quot;);</span>
         }
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (action.equals(&quot;power&quot;)){</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (action.equals(&quot;power&quot;)){</span>
             try {
-<span class="nc" id="L44">                plugStates.updatePower(plug, Math.round(Float.parseFloat(value)));</span>
+<span class="fc" id="L44">                plugStates.updatePower(plug, Math.round(Float.parseFloat(value)));</span>
 <span class="nc" id="L45">            } catch (Exception e) {</span>
 <span class="nc" id="L46">                logger.info(e.toString());</span>
-<span class="nc" id="L47">            }</span>
-<span class="nc" id="L48">            logger.info(&quot;MODIFICADO POWER&quot;);</span>
+<span class="fc" id="L47">            }</span>
+<span class="fc" id="L48">            logger.info(&quot;MODIFICADO POWER&quot;);</span>
         }
         
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L51">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

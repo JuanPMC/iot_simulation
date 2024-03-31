@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ece448.iot_hub.PlugStatesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-03-31T22:55:15" hostname="MSI" time="0.004">
+  <properties/>
+  <testcase name="testUpdatePower" classname="ece448.iot_hub.PlugStatesTest" time="0.0"/>
+  <testcase name="testUpdateState" classname="ece448.iot_hub.PlugStatesTest" time="0.0"/>
+  <testcase name="testGetPlugJSON" classname="ece448.iot_hub.PlugStatesTest" time="0.001"/>
+  <testcase name="testRemovePlug" classname="ece448.iot_hub.PlugStatesTest" time="0.0"/>
+  <testcase name="testGetAllPlugsJSON" classname="ece448.iot_hub.PlugStatesTest" time="0.002"/>
+  <system-out><![CDATA[2024-03-31 17:55:15,752 INFO POWER CALLED
+2024-03-31 17:55:15,753 INFO STATE CALLED
+2024-03-31 17:55:15,754 INFO STATE CALLED
+2024-03-31 17:55:15,754 INFO POWER CALLED
+2024-03-31 17:55:15,755 INFO STATE CALLED
+2024-03-31 17:55:15,755 INFO STATE CALLED
+2024-03-31 17:55:15,755 INFO POWER CALLED
+2024-03-31 17:55:15,756 INFO STATE CALLED
+2024-03-31 17:55:15,756 INFO POWER CALLED
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

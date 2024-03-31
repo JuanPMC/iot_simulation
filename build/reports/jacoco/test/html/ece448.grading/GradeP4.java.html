@@ -180,79 +180,78 @@ public class GradeP4 implements AutoCloseable {
 	public boolean testCase02() throws Exception {
 <span class="nc" id="L181">		getHub(&quot;/api/plugs/a?action=toggle&quot;);</span>
 <span class="nc" id="L182">		getHub(&quot;/api/plugs/c?action=off&quot;);</span>
-<span class="nc" id="L183">		Thread.sleep(2000);</span>
-<span class="nc" id="L184">		getHub(&quot;/api/plugs/e?action=on&quot;);</span>
-<span class="nc" id="L185">		getHub(&quot;/api/plugs/g?action=toggle&quot;);</span>
+<span class="nc" id="L183">		getHub(&quot;/api/plugs/e?action=on&quot;);</span>
+<span class="nc" id="L184">		getHub(&quot;/api/plugs/g?action=toggle&quot;);</span>
 
-<span class="nc" id="L187">		Thread.sleep(1000);</span>
-<span class="nc" id="L188">		return &quot;0000101&quot;.equals(getStates1());</span>
+<span class="nc" id="L186">		Thread.sleep(1000);</span>
+<span class="nc" id="L187">		return &quot;0000101&quot;.equals(getStates1());</span>
 	}
 
 	public boolean testCase03() throws Exception {
-<span class="nc" id="L192">		getHub(&quot;/api/plugs/a?action=off&quot;);</span>
-<span class="nc" id="L193">		getHub(&quot;/api/plugs/b?action=on&quot;);</span>
-<span class="nc" id="L194">		getHub(&quot;/api/plugs/c?action=off&quot;);</span>
-<span class="nc" id="L195">		getHub(&quot;/api/plugs/d?action=toggle&quot;);</span>
-<span class="nc" id="L196">		getHub(&quot;/api/plugs/e?action=on&quot;);</span>
-<span class="nc" id="L197">		getHub(&quot;/api/plugs/f?action=off&quot;);</span>
-<span class="nc" id="L198">		getHub(&quot;/api/plugs/g?action=toggle&quot;);</span>
+<span class="nc" id="L191">		getHub(&quot;/api/plugs/a?action=off&quot;);</span>
+<span class="nc" id="L192">		getHub(&quot;/api/plugs/b?action=on&quot;);</span>
+<span class="nc" id="L193">		getHub(&quot;/api/plugs/c?action=off&quot;);</span>
+<span class="nc" id="L194">		getHub(&quot;/api/plugs/d?action=toggle&quot;);</span>
+<span class="nc" id="L195">		getHub(&quot;/api/plugs/e?action=on&quot;);</span>
+<span class="nc" id="L196">		getHub(&quot;/api/plugs/f?action=off&quot;);</span>
+<span class="nc" id="L197">		getHub(&quot;/api/plugs/g?action=toggle&quot;);</span>
 
-<span class="nc" id="L200">		Thread.sleep(1000);</span>
-<span class="nc" id="L201">		return &quot;0101100&quot;.equals(getStates2());</span>
+<span class="nc" id="L199">		Thread.sleep(1000);</span>
+<span class="nc" id="L200">		return &quot;0101100&quot;.equals(getStates2());</span>
 	}
 
 	public boolean testCase04() throws Exception {
-<span class="nc" id="L205">		getHub(&quot;/api/plugs/b?action=off&quot;);</span>
-<span class="nc" id="L206">		getHub(&quot;/api/plugs/d?action=on&quot;);</span>
-<span class="nc" id="L207">		getHub(&quot;/api/plugs/f?action=on&quot;);</span>
+<span class="nc" id="L204">		getHub(&quot;/api/plugs/b?action=off&quot;);</span>
+<span class="nc" id="L205">		getHub(&quot;/api/plugs/d?action=on&quot;);</span>
+<span class="nc" id="L206">		getHub(&quot;/api/plugs/f?action=on&quot;);</span>
 
-<span class="nc" id="L209">		Thread.sleep(1000);</span>
-<span class="nc" id="L210">		return &quot;0001110&quot;.equals(getStates2());</span>
+<span class="nc" id="L208">		Thread.sleep(1000);</span>
+<span class="nc" id="L209">		return &quot;0001110&quot;.equals(getStates2());</span>
 	}
 
 	public boolean testCase05() throws Exception {
-<span class="nc" id="L214">		getSim(&quot;/b?action=on&quot;);</span>
+<span class="nc" id="L213">		getSim(&quot;/b?action=on&quot;);</span>
 
-<span class="nc" id="L216">		Thread.sleep(1000);</span>
-<span class="nc" id="L217">		return verifyStates(&quot;0101110&quot;, mqtt);</span>
+<span class="nc" id="L215">		Thread.sleep(1000);</span>
+<span class="nc" id="L216">		return verifyStates(&quot;0101110&quot;, mqtt);</span>
 	}
 
 	public boolean testCase06() throws Exception {
-<span class="nc" id="L221">		getSimEx(&quot;/d?action=off&quot;);</span>
+<span class="nc" id="L220">		getSimEx(&quot;/d?action=off&quot;);</span>
 
-<span class="nc" id="L223">		Thread.sleep(1000);</span>
-<span class="nc" id="L224">		return verifyStates(&quot;0100110&quot;, mqtt);</span>
+<span class="nc" id="L222">		Thread.sleep(1000);</span>
+<span class="nc" id="L223">		return verifyStates(&quot;0100110&quot;, mqtt);</span>
 	}
 
 	public boolean testCase07() throws Exception {
-<span class="nc" id="L228">		mqtt.publishAction(&quot;c&quot;, &quot;on&quot;);</span>
-<span class="nc" id="L229">		mqtt.publishAction(&quot;e&quot;, &quot;off&quot;);</span>
+<span class="nc" id="L227">		mqtt.publishAction(&quot;c&quot;, &quot;on&quot;);</span>
+<span class="nc" id="L228">		mqtt.publishAction(&quot;e&quot;, &quot;off&quot;);</span>
 
-<span class="nc" id="L231">		Thread.sleep(1000);</span>
-<span class="nc" id="L232">		return verifyStates(&quot;0110010&quot;, mqtt);</span>
+<span class="nc" id="L230">		Thread.sleep(1000);</span>
+<span class="nc" id="L231">		return verifyStates(&quot;0110010&quot;, mqtt);</span>
 	}
 
 	public boolean testCase08() throws Exception {
-<span class="nc" id="L236">		getSim(&quot;/a?action=toggle&quot;);</span>
-<span class="nc" id="L237">		mqtt.publishAction(&quot;d&quot;, &quot;toggle&quot;);</span>
-<span class="nc" id="L238">		getSimEx(&quot;/e?action=toggle&quot;);</span>
-<span class="nc" id="L239">		mqtt.publishAction(&quot;g&quot;, &quot;toggle&quot;);</span>
+<span class="nc" id="L235">		getSim(&quot;/a?action=toggle&quot;);</span>
+<span class="nc" id="L236">		mqtt.publishAction(&quot;d&quot;, &quot;toggle&quot;);</span>
+<span class="nc" id="L237">		getSimEx(&quot;/e?action=toggle&quot;);</span>
+<span class="nc" id="L238">		mqtt.publishAction(&quot;g&quot;, &quot;toggle&quot;);</span>
 
-<span class="nc" id="L241">		Thread.sleep(1000);</span>
-<span class="nc" id="L242">		return verifyStates(&quot;1111111&quot;, mqtt);</span>
+<span class="nc" id="L240">		Thread.sleep(1000);</span>
+<span class="nc" id="L241">		return verifyStates(&quot;1111111&quot;, mqtt);</span>
 	}
 
 	public boolean testCase09() throws Exception {
-<span class="nc" id="L246">		getHub(&quot;/api/plugs/a?action=off&quot;);</span>
-<span class="nc" id="L247">		mqtt.publishAction(&quot;b&quot;, &quot;toggle&quot;);</span>
-<span class="nc" id="L248">		getSim(&quot;/c?action=off&quot;);</span>
-<span class="nc" id="L249">		getSimEx(&quot;/d?action=toggle&quot;);</span>
-<span class="nc" id="L250">		getHub(&quot;/api/plugs/e?action=toggle&quot;);</span>
-<span class="nc" id="L251">		mqtt.publishAction(&quot;f&quot;, &quot;off&quot;);</span>
-<span class="nc" id="L252">		getSimEx(&quot;/g?action=off&quot;);</span>
+<span class="nc" id="L245">		getHub(&quot;/api/plugs/a?action=off&quot;);</span>
+<span class="nc" id="L246">		mqtt.publishAction(&quot;b&quot;, &quot;toggle&quot;);</span>
+<span class="nc" id="L247">		getSim(&quot;/c?action=off&quot;);</span>
+<span class="nc" id="L248">		getSimEx(&quot;/d?action=toggle&quot;);</span>
+<span class="nc" id="L249">		getHub(&quot;/api/plugs/e?action=toggle&quot;);</span>
+<span class="nc" id="L250">		mqtt.publishAction(&quot;f&quot;, &quot;off&quot;);</span>
+<span class="nc" id="L251">		getSimEx(&quot;/g?action=off&quot;);</span>
 
-<span class="nc" id="L254">		Thread.sleep(1000);</span>
-<span class="nc" id="L255">		return verifyStates(&quot;0000000&quot;, mqtt);</span>
+<span class="nc" id="L253">		Thread.sleep(1000);</span>
+<span class="nc" id="L254">		return verifyStates(&quot;0000000&quot;, mqtt);</span>
 	}	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
