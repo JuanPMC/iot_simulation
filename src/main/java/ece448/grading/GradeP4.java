@@ -79,12 +79,14 @@ public class GradeP4 implements AutoCloseable {
 		{
 			Map<String, Object> plug = mapper.readValue(getHub("/api/plugs/" + name),
 				new TypeReference<Map<String, Object>>() {});
-			if (!name.equals((String)plug.get("name")))
+			if (!name.equals((String)plug.get("name"))){
 				throw new Exception("invalid name " + name);
+			}
+
 			states.put(name, "off".equals((String)plug.get("state"))? "0": "1");
 		}
 		String ret = String.join("", states.values());
-		logger.debug("GradeP4: getState1 {}", ret);
+		logger.info("GradeP4: getState1 {}", ret);
 		return ret;
 	}
 
@@ -98,13 +100,17 @@ public class GradeP4 implements AutoCloseable {
 		{
 			String name = (String)plug.get("name");
 			String state = (String)plug.get("state");
-			if (!known.contains(name))
+			if (!known.contains(name)){
+				logger.debug("invalid name " + name);
 				throw new Exception("invalid plug " + name);
+			}
 			known.remove(name);
 			states.put(name, "off".equals(state)? "0": "1");
 		}
-		if (!known.isEmpty())
+		if (!known.isEmpty()){
+			logger.debug("missing plugs");
 			throw new Exception("missing plugs");
+		}
 		String ret = String.join("", states.values());
 		logger.debug("GradeP4: getState2 {}", ret);
 		return ret;

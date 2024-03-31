@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Plug.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_hub</a> &gt; <span class="el_source">Plug.java</span></div><h1>Plug.java</h1><pre class="source lang-java linenums">package ece448.iot_hub;
+
+public class Plug {
+    private int power;
+    private boolean state; // true for on, false for off
+
+    // Constructor
+<span class="nc" id="L8">    public Plug(int power, boolean state) {</span>
+<span class="nc" id="L9">        this.power = power;</span>
+<span class="nc" id="L10">        this.state = state;</span>
+<span class="nc" id="L11">    }</span>
+
+    // Getter and setter for power
+    public int getPower() {
+<span class="nc" id="L15">        return power;</span>
+    }
+
+    public void setPower(int power) {
+<span class="nc" id="L19">        this.power = power;</span>
+<span class="nc" id="L20">    }</span>
+
+    // Getter and setter for state
+    public boolean isState() {
+<span class="nc" id="L24">        return state;</span>
+    }
+
+    public void setState(boolean state) {
+<span class="nc" id="L28">        this.state = state;</span>
+<span class="nc" id="L29">    }</span>
+
+    // Method to turn the plug on
+    public void turnOn() {
+<span class="nc" id="L33">        this.state = true;</span>
+<span class="nc" id="L34">    }</span>
+
+    // Method to turn the plug off
+    public void turnOff() {
+<span class="nc" id="L38">        this.state = false;</span>
+<span class="nc" id="L39">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

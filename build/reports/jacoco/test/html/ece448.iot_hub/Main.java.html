@@ -11,43 +11,42 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class Main implements AutoCloseable {
-
 	public static void main(String[] args) throws Exception {
 		// load configuration file
-<span class="nc bnc" id="L17" title="All 2 branches missed.">		String configFile = args.length &gt; 0 ? args[0] : &quot;hubConfig.json&quot;;</span>
-<span class="nc" id="L18">		HubConfig config = mapper.readValue(new File(configFile), HubConfig.class);</span>
-<span class="nc" id="L19">		logger.info(&quot;{}: {}&quot;, configFile, mapper.writeValueAsString(config));</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">		String configFile = args.length &gt; 0 ? args[0] : &quot;hubConfig.json&quot;;</span>
+<span class="nc" id="L17">		HubConfig config = mapper.readValue(new File(configFile), HubConfig.class);</span>
+<span class="nc" id="L18">		logger.info(&quot;{}: {}&quot;, configFile, mapper.writeValueAsString(config));</span>
 
-<span class="nc" id="L21">		try (Main m = new Main(config, args))</span>
+<span class="nc" id="L20">		try (Main m = new Main(config, args))</span>
 		{
 			// loop forever
 			for (;;)
 			{
-<span class="nc" id="L26">				Thread.sleep(60000);</span>
+<span class="nc" id="L25">				Thread.sleep(60000);</span>
 			}
 		}
 	}
 
-<span class="nc" id="L31">	public Main(HubConfig config, String[] args) throws Exception {</span>
+<span class="nc" id="L30">	public Main(HubConfig config, String[] args) throws Exception {</span>
 		// Spring app
-<span class="nc" id="L33">		HashMap&lt;String, Object&gt; props = new HashMap&lt;&gt;();</span>
-<span class="nc" id="L34">		props.put(&quot;server.port&quot;, config.getHttpPort());</span>
-<span class="nc" id="L35">		props.put(&quot;mqtt.broker&quot;, config.getMqttBroker());</span>
-<span class="nc" id="L36">		props.put(&quot;mqtt.clientId&quot;, config.getMqttClientId());</span>
-<span class="nc" id="L37">		props.put(&quot;mqtt.topicPrefix&quot;, config.getMqttTopicPrefix());</span>
-<span class="nc" id="L38">		SpringApplication app = new SpringApplication(App.class);</span>
-<span class="nc" id="L39">		app.setDefaultProperties(props);</span>
-<span class="nc" id="L40">		this.appCtx = app.run(args);</span>
-<span class="nc" id="L41">	}</span>
+<span class="nc" id="L32">		HashMap&lt;String, Object&gt; props = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L33">		props.put(&quot;server.port&quot;, config.getHttpPort());</span>
+<span class="nc" id="L34">		props.put(&quot;mqtt.broker&quot;, config.getMqttBroker());</span>
+<span class="nc" id="L35">		props.put(&quot;mqtt.clientId&quot;, config.getMqttClientId());</span>
+<span class="nc" id="L36">		props.put(&quot;mqtt.topicPrefix&quot;, config.getMqttTopicPrefix());</span>
+<span class="nc" id="L37">		SpringApplication app = new SpringApplication(App.class);</span>
+<span class="nc" id="L38">		app.setDefaultProperties(props);</span>
+<span class="nc" id="L39">		this.appCtx = app.run(args);</span>
+<span class="nc" id="L40">	}</span>
 
 	@Override
 	public void close() throws Exception {
-<span class="nc" id="L45">		appCtx.close();</span>
-<span class="nc" id="L46">	}</span>
+<span class="nc" id="L44">		appCtx.close();</span>
+<span class="nc" id="L45">	}</span>
 
 	private final ConfigurableApplicationContext appCtx;
 
-<span class="nc" id="L50">	private static final ObjectMapper mapper = new ObjectMapper();</span>
-<span class="nc" id="L51">	private static final Logger logger = LoggerFactory.getLogger(Main.class);	</span>
+<span class="nc" id="L49">	private static final ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L50">	private static final Logger logger = LoggerFactory.getLogger(Main.class);	</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

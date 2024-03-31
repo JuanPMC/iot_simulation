@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_sim.PlugSimTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-03-10T01:21:06" hostname="MSI" time="1.217">
+<testsuite name="ece448.iot_sim.PlugSimTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-03-31T22:00:01" hostname="MSI" time="0.515">
   <properties/>
-  <testcase name="testSwitchOff" classname="ece448.iot_sim.PlugSimTests" time="1.184"/>
-  <testcase name="testUpdatePower" classname="ece448.iot_sim.PlugSimTests" time="0.008"/>
-  <testcase name="testInit" classname="ece448.iot_sim.PlugSimTests" time="0.003"/>
+  <testcase name="testSwitchOff" classname="ece448.iot_sim.PlugSimTests" time="0.488"/>
+  <testcase name="testUpdatePower" classname="ece448.iot_sim.PlugSimTests" time="0.003"/>
+  <testcase name="testInit" classname="ece448.iot_sim.PlugSimTests" time="0.001"/>
   <testcase name="testGetName" classname="ece448.iot_sim.PlugSimTests" time="0.002"/>
-  <testcase name="testMesurePower" classname="ece448.iot_sim.PlugSimTests" time="0.015"/>
+  <testcase name="testMesurePower" classname="ece448.iot_sim.PlugSimTests" time="0.016"/>
   <testcase name="testSwitchOn" classname="ece448.iot_sim.PlugSimTests" time="0.002"/>
   <testcase name="testToggle" classname="ece448.iot_sim.PlugSimTests" time="0.002"/>
   <system-out><![CDATA[
 
-2024-03-09 19:21:07,452 INFO Plug a: state on
+2024-03-31 17:00:02,350 INFO Plug a: state on
 
-2024-03-09 19:21:07,858 INFO Plug a: state off
-
-
-
-2024-03-09 19:21:07,865 INFO Plug a: power 3.0
-
-2024-03-09 19:21:07,870 INFO Plug a: power 5.0
+2024-03-31 17:00:02,355 INFO Plug a: state off
 
 
+
+2024-03-31 17:00:02,358 INFO Plug a: power 3.0
+
+2024-03-31 17:00:02,359 INFO Plug a: power 5.0
 
 
 
 
 
-2024-03-09 19:21:07,878 INFO Plug a.1: state on
 
 
-2024-03-09 19:21:07,881 INFO Plug a.1: power 99.0
-
-2024-03-09 19:21:07,882 INFO Plug a.1: power 1.0
-
-2024-03-09 19:21:07,883 INFO Plug a: state off
-
-2024-03-09 19:21:07,884 INFO Plug a: power 1.0
-
-2024-03-09 19:21:07,885 INFO Plug a: power 0.0
-
-2024-03-09 19:21:07,886 INFO Plug a: state on
-
-2024-03-09 19:21:07,886 INFO Plug a: power 1.0
-
-2024-03-09 19:21:07,887 INFO Plug a: power 74.08781907032909
-
-2024-03-09 19:21:07,887 INFO Plug a: state on
-
-2024-03-09 19:21:07,888 INFO Plug a: power 400.0
-
-2024-03-09 19:21:07,889 INFO Plug a: power 358.9919188507798
-
-2024-03-09 19:21:07,889 INFO Plug a: state on
-
-2024-03-09 19:21:07,890 INFO Plug a: power 200.0
-
-2024-03-09 19:21:07,890 INFO Plug a: power 188.30859365238868
+2024-03-31 17:00:02,364 INFO Plug a.1: state on
 
 
+2024-03-31 17:00:02,365 INFO Plug a.1: power 99.0
 
-2024-03-09 19:21:07,892 INFO Plug a: state on
+2024-03-31 17:00:02,367 INFO Plug a.1: power 1.0
+
+2024-03-31 17:00:02,368 INFO Plug a: state off
+
+2024-03-31 17:00:02,369 INFO Plug a: power 1.0
+
+2024-03-31 17:00:02,370 INFO Plug a: power 0.0
+
+2024-03-31 17:00:02,370 INFO Plug a: state on
+
+2024-03-31 17:00:02,371 INFO Plug a: power 1.0
+
+2024-03-31 17:00:02,373 INFO Plug a: power 74.08781907032909
+
+2024-03-31 17:00:02,374 INFO Plug a: state on
+
+2024-03-31 17:00:02,375 INFO Plug a: power 400.0
+
+2024-03-31 17:00:02,376 INFO Plug a: power 358.9919188507798
+
+2024-03-31 17:00:02,377 INFO Plug a: state on
+
+2024-03-31 17:00:02,378 INFO Plug a: power 200.0
+
+2024-03-31 17:00:02,378 INFO Plug a: power 188.30859365238868
 
 
 
-2024-03-09 19:21:07,894 INFO Plug a: state on
+2024-03-31 17:00:02,380 INFO Plug a: state on
 
-2024-03-09 19:21:07,895 INFO Plug a: state off
+
+
+2024-03-31 17:00:02,383 INFO Plug a: state on
+
+2024-03-31 17:00:02,383 INFO Plug a: state off
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

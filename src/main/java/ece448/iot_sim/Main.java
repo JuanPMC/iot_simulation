@@ -2,6 +2,9 @@ package ece448.iot_sim;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -48,9 +51,12 @@ public class Main implements AutoCloseable {
 		this.http.start();
 
 		// start MQTTcliet
-		this.mqtt = new MqttClient(config.getMqttBroker(),
-		config.getMqttClientId() , new MemoryPersistence());
-		this.mqtt.connect();
+		this.mqtt = new MqttClient(config.getMqttBroker(), config.getMqttClientId() , new MemoryPersistence());
+		try {
+			this.mqtt.connect();
+		} catch (Exception e) {
+			logger.info("ERROR CONECTING {}", e.toString());
+		}
 		// subscribe to prefix
 		MqttCommands mqttCmd = new MqttCommands(plugs, config.getMqttTopicPrefix());
 		this.mqtt.subscribe(mqttCmd.getTopic(), (topic, msg) -> {
@@ -58,10 +64,18 @@ public class Main implements AutoCloseable {
 		});
 		logger.info("Mqtt subscribe to {}", mqttCmd.getTopic());
 
+		ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+
 		MqttUpdates mqttUpd = new MqttUpdates(config.getMqttTopicPrefix());
 		for (PlugSim plug : plugs) {
 			plug.addObserver((name, key, value) -> {
 				try {
+					if  (!(this.mqtt.isConnected())){
+						this.mqtt.connect();
+						this.mqtt.subscribe(mqttCmd.getTopic(), (topic, msg) -> {
+							mqttCmd.handleMessage(topic, msg);
+						});
+					}
 					this.mqtt.publish(mqttUpd.getTopic(name, key), mqttUpd.getMessage(value));
 				} catch (Exception e) {
 					logger.error("Failed to publish {} {} {}.", name, key, value, e);

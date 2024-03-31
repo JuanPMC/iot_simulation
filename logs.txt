@@ -1,0 +1,34 @@
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:compileTestJava
+:processTestResources NO-SOURCE
+:testClasses
+:test
+:jacocoTestReport
+:grade_p4
+2024-03-31 10:52:15,640 INFO MqttCtl grader/iot_hub: tcp://127.0.0.1 connected
+2024-03-31 10:52:15,644 INFO Plug a: power 0.0
+2024-03-31 10:52:15,645 INFO Plug b: power 0.0
+2024-03-31 10:52:15,645 INFO Plug c: power 0.0
+2024-03-31 10:52:15,646 INFO JHTTP: diconnnected Address already in use (Bind failed)
+2024-03-31 10:52:16,646 INFO Plug a: power 0.0
+2024-03-31 10:52:16,647 INFO Plug b: power 0.0
+2024-03-31 10:52:16,647 INFO Plug c: power 0.0
+2024-03-31 10:52:17,648 INFO Plug a: power 0.0
+2024-03-31 10:52:17,649 INFO Plug b: power 0.0
+2024-03-31 10:52:17,650 INFO Plug c: power 0.0
+2024-03-31 10:52:18,651 INFO Plug a: power 0.0
+2024-03-31 10:52:18,652 INFO Plug b: power 0.0
+2024-03-31 10:52:18,653 INFO Plug c: power 0.0
+2024-03-31 10:52:19,654 INFO Plug a: power 0.0
+2024-03-31 10:52:19,654 INFO Plug b: power 0.0
+2024-03-31 10:52:19,655 INFO Plug c: power 0.0
+2024-03-31 10:52:20,655 INFO Plug a: power 0.0
+2024-03-31 10:52:20,656 INFO Plug b: power 0.0
+2024-03-31 10:52:20,656 INFO Plug c: power 0.0
+2024-03-31 10:52:21,656 INFO Plug a: power 0.0
+2024-03-31 10:52:21,657 INFO Plug b: power 0.0
+2024-03-31 10:52:21,657 INFO Plug c: power 0.0
+2024-03-31 10:52:22,658 INFO Plug a: power 0.0
+2024-03-31 10:52:22,659 INFO Plug b: power 0.0

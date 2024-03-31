@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_hub</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package ece448.iot_hub;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+
+import ece448.iot_hub.PlugStates;
+import ece448.iot_hub.UpdateStates;
 
 @SpringBootApplication
-public class App {
+<span class="nc" id="L20">public class App {</span>
 	@Autowired
-<span class="nc" id="L10">	public App(Environment env) throws Exception {</span>
-<span class="nc" id="L11">	}</span>
+	UpdateStates stateUpdater;
+
+	@Autowired
+	private MqttClient mqttClient;
+
+	@Bean(destroyMethod = &quot;disconnect&quot;)
+	public MqttClient mqttClient(Environment env) throws Exception {
+<span class="nc" id="L29">		String broker = env.getProperty(&quot;mqtt.broker&quot;);</span>
+<span class="nc" id="L30">		String clientId = env.getProperty(&quot;mqtt.clientId&quot;);</span>
+<span class="nc" id="L31">		MqttClient mqtt = new MqttClient(broker, clientId, new MemoryPersistence());</span>
+<span class="nc" id="L32">		mqtt.connect();</span>
+<span class="nc" id="L33">		logger.info(&quot;MqttClient {} connected: {}&quot;, clientId, broker);</span>
+<span class="nc" id="L34">		return mqtt;</span>
+	}
+
+<span class="nc" id="L37">	private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+
+	@Bean
+    public CommandLineRunner onStartup(Environment env) {
+<span class="nc" id="L41">        return args -&gt; {</span>
+			// subscribe to prefix
+<span class="nc" id="L43">			mqttClient.subscribe(env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/update/#&quot;, (topic, msg) -&gt; {</span>
+<span class="nc" id="L44">				stateUpdater.handleMessage(topic, msg);</span>
+<span class="nc" id="L45">			});</span>
+<span class="nc" id="L46">			logger.info(&quot;Mqtt subscribe to {}&quot;, env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/#&quot;);</span>
+<span class="nc" id="L47">        };</span>
+    }
 }
+
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

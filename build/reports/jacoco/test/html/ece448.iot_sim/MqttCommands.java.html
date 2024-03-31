@@ -34,18 +34,21 @@ public class MqttCommands {
 <span class="fc" id="L34">        String action = valuesArray[valuesArray.length - 1];</span>
 <span class="fc" id="L35">        String plug_name = valuesArray[valuesArray.length - 2];</span>
         
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (action.equals(&quot;toggle&quot;)){</span>
-<span class="fc" id="L38">            logger.info(&quot;MqttCmd {} {}&quot;, &quot;toggle&quot;, plug_name);</span>
-<span class="fc" id="L39">            this.plugs.get(plug_name).toggle();</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (this.plugs.containsKey(plug_name)){</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (action.equals(&quot;toggle&quot;)){</span>
+<span class="fc" id="L39">                logger.info(&quot;MqttCmd {} {}&quot;, &quot;toggle&quot;, plug_name);</span>
+<span class="fc" id="L40">                this.plugs.get(plug_name).toggle();</span>
+            }
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (action.equals(&quot;on&quot;)){</span>
+<span class="fc" id="L43">                logger.info(&quot;MqttCmd {} {}&quot;, &quot;on&quot;, plug_name);</span>
+<span class="fc" id="L44">                this.plugs.get(plug_name).switchOn();</span>
+            }
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (action.equals(&quot;off&quot;)){</span>
+<span class="fc" id="L47">                logger.info(&quot;MqttCmd {} {}&quot;, &quot;off&quot;, plug_name);</span>
+<span class="fc" id="L48">                this.plugs.get(plug_name).switchOff();</span>
+            }
         }
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (action.equals(&quot;on&quot;)){</span>
-<span class="fc" id="L42">            logger.info(&quot;MqttCmd {} {}&quot;, &quot;on&quot;, plug_name);</span>
-<span class="fc" id="L43">            this.plugs.get(plug_name).switchOn();</span>
-        }
-<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (action.equals(&quot;off&quot;)){</span>
-<span class="fc" id="L46">            logger.info(&quot;MqttCmd {} {}&quot;, &quot;off&quot;, plug_name);</span>
-<span class="fc" id="L47">            this.plugs.get(plug_name).switchOff();</span>
-        }
-<span class="fc" id="L49">    }</span>
+
+<span class="fc" id="L52">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

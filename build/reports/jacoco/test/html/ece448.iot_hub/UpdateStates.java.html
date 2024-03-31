@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UpdateStates.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_hub</a> &gt; <span class="el_source">UpdateStates.java</span></div><h1>UpdateStates.java</h1><pre class="source lang-java linenums">package ece448.iot_hub;
+
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Component;
+
+import ece448.iot_hub.App;
+import ece448.iot_hub.PlugStates;
+import ece448.iot_sim.PlugSim;
+
+@Component
+public class UpdateStates {
+    private final PlugStates plugStates;
+
+<span class="nc" id="L19">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+
+    @Autowired
+<span class="nc" id="L22">    public UpdateStates(PlugStates plugStates) {</span>
+<span class="nc" id="L23">        this.plugStates = plugStates;</span>
+<span class="nc" id="L24">    }</span>
+
+    public void handleMessage(String topic, MqttMessage msg) throws Exception {
+<span class="nc" id="L27">        logger.info(&quot;Update {} &quot;, topic);</span>
+<span class="nc" id="L28">        String[] valuesArray = topic.split(&quot;/&quot;);</span>
+<span class="nc" id="L29">        String action = valuesArray[valuesArray.length - 1];</span>
+<span class="nc" id="L30">        String plug = valuesArray[valuesArray.length - 2];</span>
+
+        // get the value
+<span class="nc" id="L33">        String value = new String(msg.getPayload());</span>
+
+        // show the value
+<span class="nc" id="L36">        logger.info(&quot;Plug: {} Action: {} Value: {}&quot;,plug ,action, value);</span>
+
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (action.equals(&quot;state&quot;)){</span>
+<span class="nc" id="L39">            plugStates.updateState(plug, value.equals(&quot;on&quot;));</span>
+<span class="nc" id="L40">            logger.info(&quot;MODIFICADO STATE&quot;);</span>
+        }
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (action.equals(&quot;power&quot;)){</span>
+            try {
+<span class="nc" id="L44">                plugStates.updatePower(plug, Math.round(Float.parseFloat(value)));</span>
+<span class="nc" id="L45">            } catch (Exception e) {</span>
+<span class="nc" id="L46">                logger.info(e.toString());</span>
+<span class="nc" id="L47">            }</span>
+<span class="nc" id="L48">            logger.info(&quot;MODIFICADO POWER&quot;);</span>
+        }
+        
+<span class="nc" id="L51">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -11,7 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class Main implements AutoCloseable {
-
 	public static void main(String[] args) throws Exception {
 		// load configuration file
 		String configFile = args.length > 0 ? args[0] : "hubConfig.json";

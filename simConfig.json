@@ -4,7 +4,11 @@
     "a",
     "b.100",
     "cc",
-    "dddd"],
+    "dddd",
+    "c",
+    "d",
+    "e"
+  ],
   "mqttBroker": "tcp://127.0.0.1",
   "mqttClientId": "iot_sim",
   "mqttTopicPrefix": "iot_ece448"

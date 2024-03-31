@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlugStates.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_hub</a> &gt; <span class="el_source">PlugStates.java</span></div><h1>PlugStates.java</h1><pre class="source lang-java linenums">package ece448.iot_hub;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+import ece448.iot_hub.App;
+import ece448.iot_hub.Plug;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+@Component
+<span class="nc" id="L20">public class PlugStates {</span>
+<span class="nc" id="L21">	private HashMap&lt;String, Plug&gt; plugs = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L22">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+
+
+	synchronized public List&lt;String&gt; getPlugs() {
+<span class="nc" id="L26">		return new ArrayList&lt;&gt;(plugs.keySet());</span>
+	}
+
+	synchronized Plug getPlug(String name) {
+<span class="nc" id="L30">		Plug plug = plugs.get(name);</span>
+<span class="nc" id="L31">		return plug;</span>
+	}
+
+    synchronized public void updateState(String name, boolean state) {
+<span class="nc" id="L35">        logger.info(&quot;STATE CALLED&quot;);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (plugs.containsKey(name)) {</span>
+<span class="nc" id="L37">            Plug plug = plugs.get(name);</span>
+<span class="nc" id="L38">            plug.setState(state);</span>
+<span class="nc" id="L39">        } else {</span>
+<span class="nc" id="L40">            plugs.put(name, new Plug(0, state));</span>
+        }
+<span class="nc" id="L42">    }</span>
+    
+    synchronized public void updatePower(String name, int power) {
+<span class="nc" id="L45">        logger.info(&quot;POWER CALLED&quot;);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (plugs.containsKey(name)) {</span>
+<span class="nc" id="L47">            Plug plug = plugs.get(name);</span>
+<span class="nc" id="L48">            plug.setPower(power);</span>
+<span class="nc" id="L49">        } else {</span>
+<span class="nc" id="L50">            plugs.put(name, new Plug(power, false));</span>
+        }
+<span class="nc" id="L52">    }</span>
+    synchronized public void removePlug(String name) {
+<span class="nc" id="L54">        plugs.remove(name);</span>
+<span class="nc" id="L55">    }</span>
+
+
+    // Method to return JSON array of all plugs with power, state, and name
+    synchronized public List&lt;Map&lt;String, Object&gt;&gt; getAllPlugsJSON() {
+<span class="nc" id="L60">        List&lt;Map&lt;String, Object&gt;&gt; jsonArray = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        for (Map.Entry&lt;String, Plug&gt; entry : plugs.entrySet()) {</span>
+<span class="nc" id="L62">            String name = entry.getKey();</span>
+<span class="nc" id="L63">            Plug plug = entry.getValue();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            if (plug != null) {</span>
+<span class="nc" id="L65">                Map&lt;String, Object&gt; json = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L66">                json.put(&quot;name&quot;, name);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">                json.put(&quot;state&quot;, plug.isState() ? &quot;on&quot; : &quot;off&quot;);</span>
+<span class="nc" id="L68">                json.put(&quot;power&quot;, plug.getPower());</span>
+<span class="nc" id="L69">                jsonArray.add(json);</span>
+            }
+<span class="nc" id="L71">        }</span>
+<span class="nc" id="L72">        return jsonArray;</span>
+    }
+    
+    // Method to return JSON representation of a single plug by name
+    synchronized public Map&lt;String, Object&gt; getPlugJSON(String name) {
+<span class="nc" id="L77">        Map&lt;String, Object&gt; json = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L78">        Plug plug = plugs.get(name);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (plug != null) {</span>
+<span class="nc" id="L80">            json.put(&quot;name&quot;, name);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">            json.put(&quot;state&quot;, plug.isState() ? &quot;on&quot; : &quot;off&quot;);</span>
+<span class="nc" id="L82">            json.put(&quot;power&quot;, plug.getPower());</span>
+        }
+<span class="nc" id="L84">        return json;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

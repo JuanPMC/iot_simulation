@@ -34,17 +34,20 @@ public class MqttCommands {
         String action = valuesArray[valuesArray.length - 1];
         String plug_name = valuesArray[valuesArray.length - 2];
         
-        if (action.equals("toggle")){
-            logger.info("MqttCmd {} {}", "toggle", plug_name);
-            this.plugs.get(plug_name).toggle();
+        if (this.plugs.containsKey(plug_name)){
+            if (action.equals("toggle")){
+                logger.info("MqttCmd {} {}", "toggle", plug_name);
+                this.plugs.get(plug_name).toggle();
+            }
+            if (action.equals("on")){
+                logger.info("MqttCmd {} {}", "on", plug_name);
+                this.plugs.get(plug_name).switchOn();
+            }
+            if (action.equals("off")){
+                logger.info("MqttCmd {} {}", "off", plug_name);
+                this.plugs.get(plug_name).switchOff();
+            }
         }
-        if (action.equals("on")){
-            logger.info("MqttCmd {} {}", "on", plug_name);
-            this.plugs.get(plug_name).switchOn();
-        }
-        if (action.equals("off")){
-            logger.info("MqttCmd {} {}", "off", plug_name);
-            this.plugs.get(plug_name).switchOff();
-        }
+
     }
 }
