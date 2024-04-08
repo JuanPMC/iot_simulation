@@ -1,14 +1,14 @@
 
 
-.2024-03-31 17:55:15,628 INFO Plug a: state on
+.2024-04-07 20:41:56,608 INFO Plug a: state on
 
-/2024-03-31 17:55:15,633 INFO Plug a: state off
+/2024-04-07 20:41:56,613 INFO Plug a: state off
 
 
 
-/2024-03-31 17:55:15,636 INFO Plug a: power 3.0
+/2024-04-07 20:41:56,617 INFO Plug a: power 3.0
 
-/2024-03-31 17:55:15,638 INFO Plug a: power 5.0
+/2024-04-07 20:41:56,619 INFO Plug a: power 5.0
 
 
 
@@ -16,115 +16,122 @@
 
 
 
-02024-03-31 17:55:15,641 INFO Plug a.1: state on
+02024-04-07 20:41:56,622 INFO Plug a.1: state on
 
 
-22024-03-31 17:55:15,642 INFO Plug a.1: power 99.0
+22024-04-07 20:41:56,623 INFO Plug a.1: power 99.0
 
-12024-03-31 17:55:15,643 INFO Plug a.1: power 1.0
+12024-04-07 20:41:56,623 INFO Plug a.1: power 1.0
 
-/2024-03-31 17:55:15,643 INFO Plug a: state off
+/2024-04-07 20:41:56,623 INFO Plug a: state off
 
-/2024-03-31 17:55:15,644 INFO Plug a: power 1.0
+/2024-04-07 20:41:56,624 INFO Plug a: power 1.0
 
-/2024-03-31 17:55:15,644 INFO Plug a: power 0.0
+/2024-04-07 20:41:56,624 INFO Plug a: power 0.0
 
-.2024-03-31 17:55:15,645 INFO Plug a: state on
+.2024-04-07 20:41:56,624 INFO Plug a: state on
 
-/2024-03-31 17:55:15,645 INFO Plug a: power 1.0
+/2024-04-07 20:41:56,625 INFO Plug a: power 1.0
 
-=2024-03-31 17:55:15,646 INFO Plug a: power 74.08781907032909
+=2024-04-07 20:41:56,625 INFO Plug a: power 74.08781907032909
 
-.2024-03-31 17:55:15,646 INFO Plug a: state on
+.2024-04-07 20:41:56,626 INFO Plug a: state on
 
-12024-03-31 17:55:15,647 INFO Plug a: power 400.0
+12024-04-07 20:41:56,626 INFO Plug a: power 400.0
 
-=2024-03-31 17:55:15,647 INFO Plug a: power 358.9919188507798
+=2024-04-07 20:41:56,626 INFO Plug a: power 358.9919188507798
 
-.2024-03-31 17:55:15,648 INFO Plug a: state on
+.2024-04-07 20:41:56,627 INFO Plug a: state on
 
-12024-03-31 17:55:15,649 INFO Plug a: power 200.0
+12024-04-07 20:41:56,627 INFO Plug a: power 200.0
 
->2024-03-31 17:55:15,649 INFO Plug a: power 188.30859365238868
+>2024-04-07 20:41:56,628 INFO Plug a: power 188.30859365238868
 
 
 
-.2024-03-31 17:55:15,650 INFO Plug a: state on
+.2024-04-07 20:41:56,629 INFO Plug a: state on
 
 
 
-.2024-03-31 17:55:15,651 INFO Plug a: state on
+.2024-04-07 20:41:56,630 INFO Plug a: state on
 
-/2024-03-31 17:55:15,652 INFO Plug a: state off
+/2024-04-07 20:41:56,631 INFO Plug a: state off
 
 
-	/2024-03-31 17:55:15,655 INFO Plug a: state off
+	/2024-04-07 20:41:56,634 INFO Plug a: state off
 
-	.2024-03-31 17:55:15,657 INFO Plug a: state on
+	.2024-04-07 20:41:56,636 INFO Plug a: state on
 
-	32024-03-31 17:55:15,699 INFO MqttCmd sdfasf/a/off 
+	32024-04-07 20:41:56,682 INFO MqttCmd sdfasf/a/off 
 
-	+2024-03-31 17:55:15,700 INFO MqttCmd off a
+	+2024-04-07 20:41:56,682 INFO MqttCmd off a
 
-	/2024-03-31 17:55:15,700 INFO Plug a: state off
+	/2024-04-07 20:41:56,682 INFO Plug a: state off
 
-/2024-03-31 17:55:15,701 INFO Plug a: state off
+/2024-04-07 20:41:56,683 INFO Plug a: state off
 
-/2024-03-31 17:55:15,702 INFO Plug a: state off
+/2024-04-07 20:41:56,684 INFO Plug a: state off
 
-/2024-03-31 17:55:15,703 INFO Plug a: state off
+/2024-04-07 20:41:56,684 INFO Plug a: state off
 
-22024-03-31 17:55:15,703 INFO MqttCmd sdfasf/a/on 
+22024-04-07 20:41:56,684 INFO MqttCmd sdfasf/a/on 
 
-*2024-03-31 17:55:15,704 INFO MqttCmd on a
+*2024-04-07 20:41:56,684 INFO MqttCmd on a
 
-.2024-03-31 17:55:15,704 INFO Plug a: state on
+.2024-04-07 20:41:56,684 INFO Plug a: state on
 
-/2024-03-31 17:55:15,704 INFO Plug a: state off
+/2024-04-07 20:41:56,685 INFO Plug a: state off
 
-.2024-03-31 17:55:15,705 INFO Plug a: state on
+.2024-04-07 20:41:56,685 INFO Plug a: state on
 
-62024-03-31 17:55:15,705 INFO MqttCmd sdfasf/a/toggle 
+62024-04-07 20:41:56,685 INFO MqttCmd sdfasf/a/toggle 
 
-.2024-03-31 17:55:15,706 INFO MqttCmd toggle a
+.2024-04-07 20:41:56,685 INFO MqttCmd toggle a
 
-/2024-03-31 17:55:15,706 INFO Plug a: state off
-/2024-03-31 17:55:15,709 INFO Plug a: state off
-.2024-03-31 17:55:15,712 INFO Plug a: state on
-62024-03-31 17:55:15,712 INFO HTTPCmd /a: {action=off}
-/2024-03-31 17:55:15,713 INFO Plug a: state off
-/2024-03-31 17:55:15,715 INFO Plug a: state off
-/2024-03-31 17:55:15,716 INFO Plug a: state off
-52024-03-31 17:55:15,716 INFO HTTPCmd /a: {action=on}
-.2024-03-31 17:55:15,717 INFO Plug a: state on
-/2024-03-31 17:55:15,717 INFO Plug a: state off
-12024-03-31 17:55:15,718 INFO HTTPCmd /a: {xx=xx}
-/2024-03-31 17:55:15,719 INFO Plug a: state off
-02024-03-31 17:55:15,719 INFO HTTPCmd /: {xx=xx}
-/2024-03-31 17:55:15,720 INFO Plug a: state off
-52024-03-31 17:55:15,720 INFO HTTPCmd /a: {action=xx}
-/2024-03-31 17:55:15,722 INFO Plug a: state off
->2024-03-31 17:55:15,722 INFO HTTPCmd /pepepe: {action=toggle}
-/2024-03-31 17:55:15,722 INFO Plug a: state off
-.2024-03-31 17:55:15,723 INFO Plug a: state on
-92024-03-31 17:55:15,723 INFO HTTPCmd /a: {action=toggle}
-/2024-03-31 17:55:15,723 INFO Plug a: state off
-@2024-03-31 17:55:15,743 INFO Update prefix/action/plug/invalid 
-E2024-03-31 17:55:15,743 INFO Plug: plug Action: invalid Value: value
->2024-03-31 17:55:15,744 INFO Update prefix/action/plug/state 
-E2024-03-31 17:55:15,744 INFO Plug: plug Action: state Value: invalid
-*2024-03-31 17:55:15,744 INFO STATE CALLED
-.2024-03-31 17:55:15,745 INFO MODIFICADO STATE
->2024-03-31 17:55:15,745 INFO Update prefix/action/plug/state 
-A2024-03-31 17:55:15,745 INFO Plug: plug Action: state Value: off
-*2024-03-31 17:55:15,746 INFO STATE CALLED
-.2024-03-31 17:55:15,746 INFO MODIFICADO STATE
-$#*2024-03-31 17:55:15,752 INFO POWER CALLED
-$%*2024-03-31 17:55:15,753 INFO STATE CALLED
-$&*2024-03-31 17:55:15,754 INFO STATE CALLED
-$&*2024-03-31 17:55:15,754 INFO POWER CALLED
-$'*2024-03-31 17:55:15,755 INFO STATE CALLED
-$(*2024-03-31 17:55:15,755 INFO STATE CALLED
-$(*2024-03-31 17:55:15,755 INFO POWER CALLED
-$(*2024-03-31 17:55:15,756 INFO STATE CALLED
-$(*2024-03-31 17:55:15,756 INFO POWER CALLED
+/2024-04-07 20:41:56,686 INFO Plug a: state off
+/2024-04-07 20:41:56,691 INFO Plug a: state off
+.2024-04-07 20:41:56,692 INFO Plug a: state on
+62024-04-07 20:41:56,693 INFO HTTPCmd /a: {action=off}
+/2024-04-07 20:41:56,694 INFO Plug a: state off
+/2024-04-07 20:41:56,694 INFO Plug a: state off
+/2024-04-07 20:41:56,695 INFO Plug a: state off
+52024-04-07 20:41:56,695 INFO HTTPCmd /a: {action=on}
+.2024-04-07 20:41:56,695 INFO Plug a: state on
+/2024-04-07 20:41:56,696 INFO Plug a: state off
+12024-04-07 20:41:56,696 INFO HTTPCmd /a: {xx=xx}
+/2024-04-07 20:41:56,697 INFO Plug a: state off
+02024-04-07 20:41:56,699 INFO HTTPCmd /: {xx=xx}
+/2024-04-07 20:41:56,703 INFO Plug a: state off
+52024-04-07 20:41:56,704 INFO HTTPCmd /a: {action=xx}
+/2024-04-07 20:41:56,705 INFO Plug a: state off
+>2024-04-07 20:41:56,707 INFO HTTPCmd /pepepe: {action=toggle}
+/2024-04-07 20:41:56,708 INFO Plug a: state off
+.2024-04-07 20:41:56,709 INFO Plug a: state on
+92024-04-07 20:41:56,709 INFO HTTPCmd /a: {action=toggle}
+/2024-04-07 20:41:56,709 INFO Plug a: state off
+@2024-04-07 20:41:56,732 INFO Update prefix/action/plug/invalid 
+E2024-04-07 20:41:56,733 INFO Plug: plug Action: invalid Value: value
+ >2024-04-07 20:41:56,733 INFO Update prefix/action/plug/state 
+ E2024-04-07 20:41:56,733 INFO Plug: plug Action: state Value: invalid
+ *2024-04-07 20:41:56,733 INFO STATE CALLED
+ .2024-04-07 20:41:56,734 INFO MODIFICADO STATE
+!>2024-04-07 20:41:56,734 INFO Update prefix/action/plug/state 
+!A2024-04-07 20:41:56,735 INFO Plug: plug Action: state Value: off
+!*2024-04-07 20:41:56,735 INFO STATE CALLED
+!.2024-04-07 20:41:56,735 INFO MODIFICADO STATE
+)(:2024-04-07 20:41:56,742 INFO Group GroupToRemove: removed
+)*F2024-04-07 20:41:56,745 INFO Group Group3: action off, [Plug1, Plug2]
+)+B2024-04-07 20:41:56,745 INFO Group Group1: created [Plug1, Plug2]
+)+B2024-04-07 20:41:56,746 INFO Group Group2: created [Plug3, Plug4]
+)+h2024-04-07 20:41:56,746 INFO Groups: [{members=[{}, {}], name=Group1}, {members=[{}, {}], name=Group2}]
+),K2024-04-07 20:41:56,747 INFO Group Group1: {members=[{}, {}], name=Group1}
+)-L2024-04-07 20:41:56,747 INFO Group TestGroup: created [Plug1, Plug2, Plug3]
+/.*2024-04-07 20:41:56,752 INFO POWER CALLED
+/0*2024-04-07 20:41:56,753 INFO STATE CALLED
+/1*2024-04-07 20:41:56,754 INFO STATE CALLED
+/1*2024-04-07 20:41:56,754 INFO POWER CALLED
+/2*2024-04-07 20:41:56,754 INFO STATE CALLED
+/3*2024-04-07 20:41:56,754 INFO STATE CALLED
+/3*2024-04-07 20:41:56,755 INFO POWER CALLED
+/3*2024-04-07 20:41:56,755 INFO STATE CALLED
+/3*2024-04-07 20:41:56,755 INFO POWER CALLED

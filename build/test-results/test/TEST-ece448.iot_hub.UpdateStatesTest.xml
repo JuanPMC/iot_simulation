@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_hub.UpdateStatesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-03-31T22:55:15" hostname="MSI" time="0.005">
+<testsuite name="ece448.iot_hub.UpdateStatesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-08T01:41:56" hostname="MSI" time="0.004">
   <properties/>
   <testcase name="testHandleMessageInvalidAction" classname="ece448.iot_hub.UpdateStatesTest" time="0.002"/>
   <testcase name="testHandleMessageInvalidValue" classname="ece448.iot_hub.UpdateStatesTest" time="0.001"/>
-  <testcase name="testHandleMessageStateOff" classname="ece448.iot_hub.UpdateStatesTest" time="0.002"/>
-  <system-out><![CDATA[2024-03-31 17:55:15,743 INFO Update prefix/action/plug/invalid 
-2024-03-31 17:55:15,743 INFO Plug: plug Action: invalid Value: value
-2024-03-31 17:55:15,744 INFO Update prefix/action/plug/state 
-2024-03-31 17:55:15,744 INFO Plug: plug Action: state Value: invalid
-2024-03-31 17:55:15,744 INFO STATE CALLED
-2024-03-31 17:55:15,745 INFO MODIFICADO STATE
-2024-03-31 17:55:15,745 INFO Update prefix/action/plug/state 
-2024-03-31 17:55:15,745 INFO Plug: plug Action: state Value: off
-2024-03-31 17:55:15,746 INFO STATE CALLED
-2024-03-31 17:55:15,746 INFO MODIFICADO STATE
+  <testcase name="testHandleMessageStateOff" classname="ece448.iot_hub.UpdateStatesTest" time="0.0"/>
+  <system-out><![CDATA[2024-04-07 20:41:56,732 INFO Update prefix/action/plug/invalid 
+2024-04-07 20:41:56,733 INFO Plug: plug Action: invalid Value: value
+2024-04-07 20:41:56,733 INFO Update prefix/action/plug/state 
+2024-04-07 20:41:56,733 INFO Plug: plug Action: state Value: invalid
+2024-04-07 20:41:56,733 INFO STATE CALLED
+2024-04-07 20:41:56,734 INFO MODIFICADO STATE
+2024-04-07 20:41:56,734 INFO Update prefix/action/plug/state 
+2024-04-07 20:41:56,735 INFO Plug: plug Action: state Value: off
+2024-04-07 20:41:56,735 INFO STATE CALLED
+2024-04-07 20:41:56,735 INFO MODIFICADO STATE
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

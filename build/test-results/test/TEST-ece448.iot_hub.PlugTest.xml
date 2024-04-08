@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_hub.PlugTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-03-31T22:55:15" hostname="MSI" time="0.001">
+<testsuite name="ece448.iot_hub.PlugTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-08T01:41:56" hostname="MSI" time="0.001">
   <properties/>
   <testcase name="testGetSetPower" classname="ece448.iot_hub.PlugTest" time="0.0"/>
   <testcase name="testGetSetState" classname="ece448.iot_hub.PlugTest" time="0.0"/>

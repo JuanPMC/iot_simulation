@@ -5,16 +5,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-
 import ece448.iot_hub.App;
 import ece448.iot_hub.PlugStates;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-import org.springframework.core.env.Environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,41 +27,41 @@ public class PlugsResource {
     private PlugStates plugStates;
 
     private final Environment env;
-<span class="nc" id="L31">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+<span class="nc" id="L30">    private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
 
 
-<span class="nc" id="L34">    public PlugsResource(Environment env){</span>
-<span class="nc" id="L35">        this.env = env;</span>
-<span class="nc" id="L36">    }</span>
+<span class="nc" id="L33">    public PlugsResource(Environment env){</span>
+<span class="nc" id="L34">        this.env = env;</span>
+<span class="nc" id="L35">    }</span>
 
     @GetMapping(&quot;/api/plugs/{plug:.+}&quot;)
     public Object getPlug(@PathVariable(&quot;plug&quot;) String plugName, @RequestParam(required = false) String action) {
-<span class="nc bnc" id="L40" title="All 8 branches missed.">        if (action != null &amp;&amp; (action.equalsIgnoreCase(&quot;toggle&quot;) || action.equalsIgnoreCase(&quot;on&quot;) || action.equalsIgnoreCase(&quot;off&quot;))) {</span>
-<span class="nc" id="L41">            return publishAction(plugName, action);</span>
+<span class="nc bnc" id="L39" title="All 8 branches missed.">        if (action != null &amp;&amp; (action.equalsIgnoreCase(&quot;toggle&quot;) || action.equalsIgnoreCase(&quot;on&quot;) || action.equalsIgnoreCase(&quot;off&quot;))) {</span>
+<span class="nc" id="L40">            return publishAction(plugName, action);</span>
         } else {
-<span class="nc" id="L43">            return plugStates.getPlugJSON(plugName);</span>
+<span class="nc" id="L42">            return plugStates.getPlugJSON(plugName);</span>
         }
     }
 
     synchronized public String publishAction(String plugName, String action) {
-<span class="nc" id="L48">        String topic = env.getProperty(&quot;mqtt.topicPrefix&quot;)+&quot;/action/&quot;+plugName+&quot;/&quot;+action;</span>
+<span class="nc" id="L47">        String topic = env.getProperty(&quot;mqtt.topicPrefix&quot;)+&quot;/action/&quot;+plugName+&quot;/&quot;+action;</span>
         try
         {
-<span class="nc bnc" id="L51" title="All 2 branches missed.">            if  (!(mqttClient.isConnected())){</span>
-<span class="nc" id="L52">                mqttClient.connect();</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if  (!(mqttClient.isConnected())){</span>
+<span class="nc" id="L51">                mqttClient.connect();</span>
             }  
-<span class="nc" id="L54">            mqttClient.publish(topic, new MqttMessage(topic.getBytes()));</span>
-<span class="nc" id="L55">            return &quot;true&quot;;</span>
+<span class="nc" id="L53">            mqttClient.publish(topic, new MqttMessage(topic.getBytes()));</span>
+<span class="nc" id="L54">            return &quot;true&quot;;</span>
         }
-<span class="nc" id="L57">        catch (Exception e)</span>
+<span class="nc" id="L56">        catch (Exception e)</span>
         {
-<span class="nc" id="L59">            return e.toString();</span>
+<span class="nc" id="L58">            return e.toString();</span>
         }
     }
 
     @GetMapping(&quot;/api/plugs&quot;)
     public Object getPlugs() {
-<span class="nc" id="L65">        return plugStates.getAllPlugsJSON();</span>
+<span class="nc" id="L64">        return plugStates.getAllPlugsJSON();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

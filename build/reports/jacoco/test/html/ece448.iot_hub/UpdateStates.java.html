@@ -39,13 +39,13 @@ public class UpdateStates {
 <span class="fc" id="L39">            plugStates.updateState(plug, value.equals(&quot;on&quot;));</span>
 <span class="fc" id="L40">            logger.info(&quot;MODIFICADO STATE&quot;);</span>
         }
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (action.equals(&quot;power&quot;)){</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (action.equals(&quot;power&quot;)){</span>
             try {
-<span class="fc" id="L44">                plugStates.updatePower(plug, Math.round(Float.parseFloat(value)));</span>
+<span class="nc" id="L44">                plugStates.updatePower(plug, Math.round(Float.parseFloat(value)));</span>
 <span class="nc" id="L45">            } catch (Exception e) {</span>
 <span class="nc" id="L46">                logger.info(e.toString());</span>
-<span class="fc" id="L47">            }</span>
-<span class="fc" id="L48">            logger.info(&quot;MODIFICADO POWER&quot;);</span>
+<span class="nc" id="L47">            }</span>
+<span class="nc" id="L48">            logger.info(&quot;MODIFICADO POWER&quot;);</span>
         }
         
 <span class="fc" id="L51">    }</span>

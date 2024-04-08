@@ -24,28 +24,37 @@ import ece448.iot_hub.UpdateStates;
 	@Autowired
 	private MqttClient mqttClient;
 
+	@Autowired
+	private Topic topic;
+
 	@Bean(destroyMethod = &quot;disconnect&quot;)
 	public MqttClient mqttClient(Environment env) throws Exception {
-<span class="nc" id="L29">		String broker = env.getProperty(&quot;mqtt.broker&quot;);</span>
-<span class="nc" id="L30">		String clientId = env.getProperty(&quot;mqtt.clientId&quot;);</span>
-<span class="nc" id="L31">		MqttClient mqtt = new MqttClient(broker, clientId, new MemoryPersistence());</span>
-<span class="nc" id="L32">		mqtt.connect();</span>
-<span class="nc" id="L33">		logger.info(&quot;MqttClient {} connected: {}&quot;, clientId, broker);</span>
-<span class="nc" id="L34">		return mqtt;</span>
+<span class="nc" id="L32">		String broker = env.getProperty(&quot;mqtt.broker&quot;);</span>
+<span class="nc" id="L33">		String clientId = env.getProperty(&quot;mqtt.clientId&quot;);</span>
+<span class="nc" id="L34">		MqttClient mqtt = new MqttClient(broker, clientId, new MemoryPersistence());</span>
+<span class="nc" id="L35">		mqtt.connect();</span>
+<span class="nc" id="L36">		logger.info(&quot;MqttClient {} connected: {}&quot;, clientId, broker);</span>
+<span class="nc" id="L37">		return mqtt;</span>
 	}
 
-<span class="nc" id="L37">	private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
+<span class="nc" id="L40">	private static final Logger logger = LoggerFactory.getLogger(App.class);</span>
 
 	@Bean
     public CommandLineRunner onStartup(Environment env) {
-<span class="nc" id="L41">        return args -&gt; {</span>
+<span class="nc" id="L44">        return args -&gt; {</span>
 			// subscribe to prefix
-<span class="nc" id="L43">			mqttClient.subscribe(env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/update/#&quot;, (topic, msg) -&gt; {</span>
-<span class="nc" id="L44">				stateUpdater.handleMessage(topic, msg);</span>
-<span class="nc" id="L45">			});</span>
-<span class="nc" id="L46">			logger.info(&quot;Mqtt subscribe to {}&quot;, env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/#&quot;);</span>
-<span class="nc" id="L47">        };</span>
+<span class="nc" id="L46">			mqttClient.subscribe(env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/update/#&quot;, (topic, msg) -&gt; {</span>
+<span class="nc" id="L47">				stateUpdater.handleMessage(topic, msg);</span>
+<span class="nc" id="L48">			});</span>
+<span class="nc" id="L49">			logger.info(&quot;Mqtt subscribe to {}&quot;, env.getProperty(&quot;mqtt.topicPrefix&quot;)+ &quot;/#&quot;);</span>
+<span class="nc" id="L50">        };</span>
     }
+
+	@Bean
+	public Topic defineTopic(Environment env){
+<span class="nc" id="L55">		Topic topic = new Topic(env.getProperty(&quot;mqtt.topicPrefix&quot;));</span>
+<span class="nc" id="L56">		return topic;</span>
+	}
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

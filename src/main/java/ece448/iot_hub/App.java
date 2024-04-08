@@ -24,6 +24,9 @@ public class App {
 	@Autowired
 	private MqttClient mqttClient;
 
+	@Autowired
+	private Topic topic;
+
 	@Bean(destroyMethod = "disconnect")
 	public MqttClient mqttClient(Environment env) throws Exception {
 		String broker = env.getProperty("mqtt.broker");
@@ -46,5 +49,11 @@ public class App {
 			logger.info("Mqtt subscribe to {}", env.getProperty("mqtt.topicPrefix")+ "/#");
         };
     }
+
+	@Bean
+	public Topic defineTopic(Environment env){
+		Topic topic = new Topic(env.getProperty("mqtt.topicPrefix"));
+		return topic;
+	}
 }
 
