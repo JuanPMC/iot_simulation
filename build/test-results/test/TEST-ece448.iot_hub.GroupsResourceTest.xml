@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_hub.GroupsResourceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-08T01:41:56" hostname="MSI" time="0.007">
+<testsuite name="ece448.iot_hub.GroupsResourceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-27T23:11:18" hostname="MSI" time="0.064">
   <properties/>
-  <testcase name="testRemoveGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.002"/>
-  <testcase name="testPublishAction" classname="ece448.iot_hub.GroupsResourceTest" time="0.002"/>
-  <testcase name="testRetrieveAllGroups" classname="ece448.iot_hub.GroupsResourceTest" time="0.002"/>
-  <testcase name="testRetrieveSpecificGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.0"/>
-  <testcase name="testAddNewGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.001"/>
-  <system-out><![CDATA[2024-04-07 20:41:56,742 INFO Group GroupToRemove: removed
-2024-04-07 20:41:56,745 INFO Group Group3: action off, [Plug1, Plug2]
-2024-04-07 20:41:56,745 INFO Group Group1: created [Plug1, Plug2]
-2024-04-07 20:41:56,746 INFO Group Group2: created [Plug3, Plug4]
-2024-04-07 20:41:56,746 INFO Groups: [{members=[{}, {}], name=Group1}, {members=[{}, {}], name=Group2}]
-2024-04-07 20:41:56,747 INFO Group Group1: {members=[{}, {}], name=Group1}
-2024-04-07 20:41:56,747 INFO Group TestGroup: created [Plug1, Plug2, Plug3]
+  <testcase name="testRemoveGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.003"/>
+  <testcase name="testPublishAction" classname="ece448.iot_hub.GroupsResourceTest" time="0.052"/>
+  <testcase name="testRetrieveAllGroups" classname="ece448.iot_hub.GroupsResourceTest" time="0.004"/>
+  <testcase name="testRetrieveSpecificGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.001"/>
+  <testcase name="testAddNewGroup" classname="ece448.iot_hub.GroupsResourceTest" time="0.003"/>
+  <system-out><![CDATA[2024-04-27 18:11:18,343 INFO Group GroupToRemove: removed
+2024-04-27 18:11:18,395 INFO Group Group3: action off, [Plug1, Plug2]
+2024-04-27 18:11:18,397 INFO Group Group1: created [Plug1, Plug2]
+2024-04-27 18:11:18,398 INFO Group Group2: created [Plug3, Plug4]
+2024-04-27 18:11:18,399 INFO Groups: [{members=[{}, {}], name=Group1}, {members=[{}, {}], name=Group2}]
+2024-04-27 18:11:18,401 INFO Group Group1: {members=[{}, {}], name=Group1}
+2024-04-27 18:11:18,403 INFO Group TestGroup: created [Plug1, Plug2, Plug3]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

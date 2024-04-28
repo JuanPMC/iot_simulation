@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_hub.PlugTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-08T01:41:56" hostname="MSI" time="0.001">
+<testsuite name="ece448.iot_hub.PlugTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-27T23:11:18" hostname="MSI" time="0.004">
   <properties/>
-  <testcase name="testGetSetPower" classname="ece448.iot_hub.PlugTest" time="0.0"/>
-  <testcase name="testGetSetState" classname="ece448.iot_hub.PlugTest" time="0.0"/>
+  <testcase name="testGetSetPower" classname="ece448.iot_hub.PlugTest" time="0.002"/>
+  <testcase name="testGetSetState" classname="ece448.iot_hub.PlugTest" time="0.001"/>
   <testcase name="testTurnOff" classname="ece448.iot_hub.PlugTest" time="0.0"/>
   <testcase name="testTurnOn" classname="ece448.iot_hub.PlugTest" time="0.0"/>
   <testcase name="testConstructor" classname="ece448.iot_hub.PlugTest" time="0.0"/>
