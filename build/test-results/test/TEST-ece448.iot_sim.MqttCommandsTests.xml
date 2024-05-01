@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_sim.MqttCommandsTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-04-27T23:11:18" hostname="MSI" time="0.168">
+<testsuite name="ece448.iot_sim.MqttCommandsTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-01T22:24:40" hostname="MSI" time="0.108">
   <properties/>
-  <testcase name="testOff" classname="ece448.iot_sim.MqttCommandsTests" time="0.164"/>
-  <testcase name="testTopic" classname="ece448.iot_sim.MqttCommandsTests" time="0.0"/>
-  <testcase name="testOn" classname="ece448.iot_sim.MqttCommandsTests" time="0.001"/>
-  <testcase name="testToggle" classname="ece448.iot_sim.MqttCommandsTests" time="0.002"/>
-  <system-out><![CDATA[2024-04-27 18:11:18,092 INFO Plug a: state off
-2024-04-27 18:11:18,131 INFO Plug a: state on
-2024-04-27 18:11:18,256 INFO MqttCmd sdfasf/a/off 
-2024-04-27 18:11:18,256 INFO MqttCmd off a
-2024-04-27 18:11:18,257 INFO Plug a: state off
-2024-04-27 18:11:18,257 INFO Plug a: state off
-2024-04-27 18:11:18,257 INFO Plug a: state off
-2024-04-27 18:11:18,257 INFO Plug a: state off
-2024-04-27 18:11:18,258 INFO MqttCmd sdfasf/a/on 
-2024-04-27 18:11:18,258 INFO MqttCmd on a
-2024-04-27 18:11:18,258 INFO Plug a: state on
-2024-04-27 18:11:18,259 INFO Plug a: state off
-2024-04-27 18:11:18,259 INFO Plug a: state on
-2024-04-27 18:11:18,259 INFO MqttCmd sdfasf/a/toggle 
-2024-04-27 18:11:18,260 INFO MqttCmd toggle a
-2024-04-27 18:11:18,260 INFO Plug a: state off
+  <testcase name="testOff" classname="ece448.iot_sim.MqttCommandsTests" time="0.097"/>
+  <testcase name="testTopic" classname="ece448.iot_sim.MqttCommandsTests" time="0.001"/>
+  <testcase name="testOn" classname="ece448.iot_sim.MqttCommandsTests" time="0.003"/>
+  <testcase name="testToggle" classname="ece448.iot_sim.MqttCommandsTests" time="0.007"/>
+  <system-out><![CDATA[2024-05-01 17:24:40,114 INFO Plug a: state off
+2024-05-01 17:24:40,118 INFO Plug a: state on
+2024-05-01 17:24:40,209 INFO MqttCmd sdfasf/a/off 
+2024-05-01 17:24:40,210 INFO MqttCmd off a
+2024-05-01 17:24:40,210 INFO Plug a: state off
+2024-05-01 17:24:40,211 INFO Plug a: state off
+2024-05-01 17:24:40,212 INFO Plug a: state off
+2024-05-01 17:24:40,213 INFO Plug a: state off
+2024-05-01 17:24:40,213 INFO MqttCmd sdfasf/a/on 
+2024-05-01 17:24:40,214 INFO MqttCmd on a
+2024-05-01 17:24:40,214 INFO Plug a: state on
+2024-05-01 17:24:40,215 INFO Plug a: state off
+2024-05-01 17:24:40,216 INFO Plug a: state on
+2024-05-01 17:24:40,217 INFO MqttCmd sdfasf/a/toggle 
+2024-05-01 17:24:40,219 INFO MqttCmd toggle a
+2024-05-01 17:24:40,220 INFO Plug a: state off
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

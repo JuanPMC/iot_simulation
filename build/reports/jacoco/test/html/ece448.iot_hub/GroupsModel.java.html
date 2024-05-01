@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupsModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">iot_ece448</a> &gt; <a href="index.source.html" class="el_package">ece448.iot_hub</a> &gt; <span class="el_source">GroupsModel.java</span></div><h1>GroupsModel.java</h1><pre class="source lang-java linenums">package ece448.iot_hub;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,24 +9,50 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-<span class="fc" id="L11">public class GroupsModel {</span>
-<span class="fc" id="L12">	private HashMap&lt;String, HashSet&lt;String&gt;&gt; groups = new HashMap&lt;&gt;();</span>
+public class GroupsModel {
+    private HashMap&lt;String, HashSet&lt;String&gt;&gt; groups;
 
-	synchronized public List&lt;String&gt; getGroups() {
-<span class="fc" id="L15">		return new ArrayList&lt;&gt;(groups.keySet());</span>
-	}
+<span class="nc" id="L15">    public GroupsModel() {</span>
+<span class="nc" id="L16">        this.groups = loadGroupsFromFile();</span>
+<span class="nc" id="L17">    }</span>
 
-	synchronized public List&lt;String&gt; getGroupMembers(String group) {
-<span class="fc" id="L19">		HashSet&lt;String&gt; members = groups.get(group);</span>
-<span class="fc bfc" id="L20" title="All 2 branches covered.">		return (members == null)? new ArrayList&lt;&gt;(): new ArrayList&lt;&gt;(members);</span>
-	}
+    synchronized public List&lt;String&gt; getGroups() {
+<span class="nc" id="L20">        return new ArrayList&lt;&gt;(groups.keySet());</span>
+    }
 
-	synchronized public void setGroupMembers(String group, List&lt;String&gt; members) {
-<span class="fc" id="L24">		groups.put(group, new HashSet&lt;&gt;(members));</span>
-<span class="fc" id="L25">	}</span>
+    synchronized public List&lt;String&gt; getGroupMembers(String group) {
+<span class="nc" id="L24">        HashSet&lt;String&gt; members = groups.get(group);</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        return (members == null) ? new ArrayList&lt;&gt;() : new ArrayList&lt;&gt;(members);</span>
+    }
 
-	synchronized public void removeGroup(String group) {
-<span class="fc" id="L28">		groups.remove(group);</span>
-<span class="fc" id="L29">	}</span>
+    synchronized public void setGroupMembers(String group, List&lt;String&gt; members) {
+<span class="nc" id="L29">        groups.put(group, new HashSet&lt;&gt;(members));</span>
+<span class="nc" id="L30">        saveGroupsToFile(groups);</span>
+<span class="nc" id="L31">    }</span>
+
+    synchronized public void removeGroup(String group) {
+<span class="nc" id="L34">        groups.remove(group);</span>
+<span class="nc" id="L35">        saveGroupsToFile(groups);</span>
+<span class="nc" id="L36">    }</span>
+
+    private HashMap&lt;String, HashSet&lt;String&gt;&gt; loadGroupsFromFile() {
+<span class="nc" id="L39">        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(&quot;groups.ser&quot;))) {</span>
+<span class="nc" id="L40">            return (HashMap&lt;String, HashSet&lt;String&gt;&gt;) ois.readObject();</span>
+<span class="nc" id="L41">        } catch (FileNotFoundException e) {</span>
+            // If file not found, return an empty HashMap
+<span class="nc" id="L43">            return new HashMap&lt;&gt;();</span>
+<span class="nc" id="L44">        } catch (IOException | ClassNotFoundException e) {</span>
+<span class="nc" id="L45">            e.printStackTrace();</span>
+<span class="nc" id="L46">            return new HashMap&lt;&gt;();</span>
+        }
+    }
+
+    private void saveGroupsToFile(HashMap&lt;String, HashSet&lt;String&gt;&gt; groups) {
+<span class="nc" id="L51">        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(&quot;groups.ser&quot;))) {</span>
+<span class="nc" id="L52">            oos.writeObject(groups);</span>
+<span class="nc" id="L53">        } catch (IOException e) {</span>
+<span class="nc" id="L54">            e.printStackTrace();</span>
+<span class="nc" id="L55">        }</span>
+<span class="nc" id="L56">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

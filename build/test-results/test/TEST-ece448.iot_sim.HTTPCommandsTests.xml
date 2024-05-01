@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_sim.HTTPCommandsTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-04-27T23:11:18" hostname="MSI" time="0.01">
+<testsuite name="ece448.iot_sim.HTTPCommandsTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-05-01T22:24:40" hostname="MSI" time="0.018">
   <properties/>
   <testcase name="testOff" classname="ece448.iot_sim.HTTPCommandsTests" time="0.002"/>
   <testcase name="testON" classname="ece448.iot_sim.HTTPCommandsTests" time="0.001"/>
-  <testcase name="testNullAction" classname="ece448.iot_sim.HTTPCommandsTests" time="0.002"/>
-  <testcase name="testRootDir" classname="ece448.iot_sim.HTTPCommandsTests" time="0.001"/>
-  <testcase name="testActionNoExist" classname="ece448.iot_sim.HTTPCommandsTests" time="0.001"/>
-  <testcase name="testNoPLug" classname="ece448.iot_sim.HTTPCommandsTests" time="0.0"/>
-  <testcase name="testToggel" classname="ece448.iot_sim.HTTPCommandsTests" time="0.001"/>
-  <system-out><![CDATA[2024-04-27 18:11:18,263 INFO Plug a: state off
-2024-04-27 18:11:18,263 INFO Plug a: state on
-2024-04-27 18:11:18,264 INFO HTTPCmd /a: {action=off}
-2024-04-27 18:11:18,264 INFO Plug a: state off
-2024-04-27 18:11:18,264 INFO Plug a: state off
-2024-04-27 18:11:18,265 INFO Plug a: state off
-2024-04-27 18:11:18,265 INFO HTTPCmd /a: {action=on}
-2024-04-27 18:11:18,265 INFO Plug a: state on
-2024-04-27 18:11:18,266 INFO Plug a: state off
-2024-04-27 18:11:18,267 INFO HTTPCmd /a: {xx=xx}
-2024-04-27 18:11:18,268 INFO Plug a: state off
-2024-04-27 18:11:18,268 INFO HTTPCmd /: {xx=xx}
-2024-04-27 18:11:18,269 INFO Plug a: state off
-2024-04-27 18:11:18,270 INFO HTTPCmd /a: {action=xx}
-2024-04-27 18:11:18,271 INFO Plug a: state off
-2024-04-27 18:11:18,271 INFO HTTPCmd /pepepe: {action=toggle}
-2024-04-27 18:11:18,272 INFO Plug a: state off
-2024-04-27 18:11:18,272 INFO Plug a: state on
-2024-04-27 18:11:18,272 INFO HTTPCmd /a: {action=toggle}
-2024-04-27 18:11:18,272 INFO Plug a: state off
+  <testcase name="testNullAction" classname="ece448.iot_sim.HTTPCommandsTests" time="0.001"/>
+  <testcase name="testRootDir" classname="ece448.iot_sim.HTTPCommandsTests" time="0.002"/>
+  <testcase name="testActionNoExist" classname="ece448.iot_sim.HTTPCommandsTests" time="0.004"/>
+  <testcase name="testNoPLug" classname="ece448.iot_sim.HTTPCommandsTests" time="0.002"/>
+  <testcase name="testToggel" classname="ece448.iot_sim.HTTPCommandsTests" time="0.002"/>
+  <system-out><![CDATA[2024-05-01 17:24:40,225 INFO Plug a: state off
+2024-05-01 17:24:40,226 INFO Plug a: state on
+2024-05-01 17:24:40,227 INFO HTTPCmd /a: {action=off}
+2024-05-01 17:24:40,227 INFO Plug a: state off
+2024-05-01 17:24:40,228 INFO Plug a: state off
+2024-05-01 17:24:40,228 INFO Plug a: state off
+2024-05-01 17:24:40,228 INFO HTTPCmd /a: {action=on}
+2024-05-01 17:24:40,229 INFO Plug a: state on
+2024-05-01 17:24:40,229 INFO Plug a: state off
+2024-05-01 17:24:40,229 INFO HTTPCmd /a: {xx=xx}
+2024-05-01 17:24:40,230 INFO Plug a: state off
+2024-05-01 17:24:40,231 INFO HTTPCmd /: {xx=xx}
+2024-05-01 17:24:40,235 INFO Plug a: state off
+2024-05-01 17:24:40,236 INFO HTTPCmd /a: {action=xx}
+2024-05-01 17:24:40,240 INFO Plug a: state off
+2024-05-01 17:24:40,241 INFO HTTPCmd /pepepe: {action=toggle}
+2024-05-01 17:24:40,242 INFO Plug a: state off
+2024-05-01 17:24:40,242 INFO Plug a: state on
+2024-05-01 17:24:40,243 INFO HTTPCmd /a: {action=toggle}
+2024-05-01 17:24:40,243 INFO Plug a: state off
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

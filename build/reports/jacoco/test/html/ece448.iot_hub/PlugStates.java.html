@@ -76,7 +76,7 @@ import org.slf4j.LoggerFactory;
     synchronized public Map&lt;String, Object&gt; getPlugJSON(String name) {
 <span class="fc" id="L77">        Map&lt;String, Object&gt; json = new HashMap&lt;&gt;();</span>
 <span class="fc" id="L78">        Plug plug = plugs.get(name);</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (plug != null) {</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">        if (plug != null) {</span>
 <span class="fc" id="L80">            json.put(&quot;name&quot;, name);</span>
 <span class="pc bpc" id="L81" title="1 of 2 branches missed.">            json.put(&quot;state&quot;, plug.isState() ? &quot;on&quot; : &quot;off&quot;);</span>
 <span class="fc" id="L82">            json.put(&quot;power&quot;, plug.getPower());</span>

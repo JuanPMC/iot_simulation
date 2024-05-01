@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ece448.iot_hub.UpdateStatesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-27T23:11:18" hostname="MSI" time="0.045">
+<testsuite name="ece448.iot_hub.UpdateStatesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-01T22:24:40" hostname="MSI" time="0.012">
   <properties/>
-  <testcase name="testHandleMessageInvalidAction" classname="ece448.iot_hub.UpdateStatesTest" time="0.031"/>
-  <testcase name="testHandleMessageInvalidValue" classname="ece448.iot_hub.UpdateStatesTest" time="0.007"/>
-  <testcase name="testHandleMessageStateOff" classname="ece448.iot_hub.UpdateStatesTest" time="0.006"/>
-  <system-out><![CDATA[2024-04-27 18:11:18,311 INFO Update prefix/action/plug/invalid 
-2024-04-27 18:11:18,312 INFO Plug: plug Action: invalid Value: value
-2024-04-27 18:11:18,313 INFO Update prefix/action/plug/state 
-2024-04-27 18:11:18,315 INFO Plug: plug Action: state Value: invalid
-2024-04-27 18:11:18,316 INFO STATE CALLED
-2024-04-27 18:11:18,319 INFO MODIFICADO STATE
-2024-04-27 18:11:18,321 INFO Update prefix/action/plug/state 
-2024-04-27 18:11:18,322 INFO Plug: plug Action: state Value: off
-2024-04-27 18:11:18,324 INFO STATE CALLED
-2024-04-27 18:11:18,325 INFO MODIFICADO STATE
+  <testcase name="testHandleMessageInvalidAction" classname="ece448.iot_hub.UpdateStatesTest" time="0.004"/>
+  <testcase name="testHandleMessageInvalidValue" classname="ece448.iot_hub.UpdateStatesTest" time="0.004"/>
+  <testcase name="testHandleMessageStateOff" classname="ece448.iot_hub.UpdateStatesTest" time="0.004"/>
+  <system-out><![CDATA[2024-05-01 17:24:40,259 INFO Update prefix/action/plug/invalid 
+2024-05-01 17:24:40,260 INFO Plug: plug Action: invalid Value: value
+2024-05-01 17:24:40,261 INFO Update prefix/action/plug/state 
+2024-05-01 17:24:40,262 INFO Plug: plug Action: state Value: invalid
+2024-05-01 17:24:40,262 INFO STATE CALLED
+2024-05-01 17:24:40,264 INFO MODIFICADO STATE
+2024-05-01 17:24:40,265 INFO Update prefix/action/plug/state 
+2024-05-01 17:24:40,267 INFO Plug: plug Action: state Value: off
+2024-05-01 17:24:40,267 INFO STATE CALLED
+2024-05-01 17:24:40,268 INFO MODIFICADO STATE
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
